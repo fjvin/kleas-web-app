@@ -9,37 +9,39 @@
 
     <!-- Bootstrap4 jsDelivr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-   <!-- bootstrap-select compiled and minified CSS -->
+    <!-- bootstrap-select compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <!-- Local css file -->
+    <link rel="stylesheet" href="{% static 'sales/sample.css' %}">
 </head>
 <body>
     <!--Nav Bar-->
     <header class="header">
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow">
-            <div class="container-fluid">
-            <a class="navbar-brand ms-1 fs-1 my-1" href="#">
+            
+            <a class="navbar-brand logo" href="#">
                 <img src="{% static 'drawable/kleas_logo.png' %}" alt="Klea's logo" width="50" height="50"
                     class="d-inline-block align-top rounded"/> 
             Klea</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto text-end mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Sales</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Expenses</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Analytics</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Settings</a>
-                </li>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav navbar_selection">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Sales</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Expenses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Analytics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Settings</a>
+                    </li>
                 </ul>
-            </div>
+
             </div>
         </nav>
     </header>
