@@ -5,6 +5,22 @@
 #cancel-btn {
     background-color: #CDCDCD;
 }
+
+.button-custom{
+    border-radius: 8px;
+    width: 95% !important;
+}
+
+.btn-block{
+    padding: 12px;
+    border-radius: 5px;    
+}
+
+/* .no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+} */
+
 .logo {
     font-size: xx-large;
     font-family: Inter, Arial;

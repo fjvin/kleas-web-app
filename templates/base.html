@@ -6,21 +6,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     {% load static %}
     <link rel="stylesheet" href="{% static 'sales/add-sales.css' %}">
 
-    
+
     <title>Kleas</title>
 
     <!-- Bootstrap4 jsDelivr CSS -->
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <!-- bootstrap-select compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
     <!-- sample.css -->
     <link rel="stylesheet" href="{% static 'sales/sample.css' %}">
-    
+
 
 </head>
 
@@ -58,10 +60,10 @@
         </nav>
     </header>
 
-<div class="container">
-    {% block content %}
+    <div class="container">
+        {% block content %}
 
-    {% endblock %}
+        {% endblock %}
     </div>
     <!-- Bootstrap4 jsDelivr CSS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
@@ -73,4 +75,3 @@
 </body>
 
 </html>
-
