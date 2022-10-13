@@ -1,3 +1,19 @@
+.logo {
+    font-size: xx-large;
+    font-family: Inter, Arial;
+}
+
+.navbar_selection {
+    font-size: large;
+    text-align: end;
+    font-family: Inter, Arial;
+}
+
+.content{
+    font-size: medium;
+    font-family: Inter, Arial;
+}
+
 #price-num-input {
     font-family: 'Inter Regular', arial;
     text-align: right;
@@ -21,4 +37,5 @@
     justify-content: center;
     background: #FFFFFF;
     border-radius: 0.5rem;
+
 }
