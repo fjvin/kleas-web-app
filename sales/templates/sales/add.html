@@ -2,22 +2,34 @@
 
 {% block content %}
 
-<h1 class="text-dark ml-3 mt-5 mb-4">Add Transaction</h1>
+
+  <h1 class="text-dark ms-3 mt-5 m-4">Add Sales</h1>
+
 
 <form method="post" id="saleForm" data-items-url="{% url 'sales:ajax_load_items' %}" novalidate>
   {% csrf_token %}
 
-  {% for field in form.visible_fields|slice:":2" %}
-  <div class="mb-3 ml-3 mr-3 content">
-    <label for="{{field.id_for_label}}" class="form-label">{{ field.label_tag }}</label>
-    {{ field }}
-  </div>
-  {{ field.errors }}
-  {% endfor %}
 
-  <div class="form-group ml-3 content">
-    <div>
-      <label for="category-dropdown">Category</label>
+    {% for field in form.visible_fields|slice:":2" %}
+      <div class="mb-3 m-4">
+        <label for="{{field.id_for_label}}" class="form-label">{{ field.label_tag }}</label>
+        {{ field }}
+      </div>
+      {{ field.errors }}
+    {% endfor %}
+    
+    <div class="form-group m-4">
+      <div>
+        <label for="category-dropdown">Category</label>
+      </div>
+      <select name="category-dropdown" class="selectpicker" id="category-dropdown" title="Select Category">
+        {% for id, name in form.category.field.choices %}
+          {% if name != "---------" %}
+            <option value="{{ id }}">{{ name }}</option>
+          {% endif %}
+        {% endfor %}
+      </select>
+
     </div>
     <select name="category-dropdown" class="selectpicker" id="category-dropdown" title="Select Category">
       {% for id, name in form.category.field.choices %}
@@ -28,9 +40,17 @@
     </select>
   </div>
 
-  <div class="form-group ml-3 content">
-    <div>
-      <label for="item-dropdown">Item</label>
+
+    <div class="form-group m-4">
+      <div>
+        <label for="item-dropdown">Item</label>
+      </div>
+      <select name="item-dropdown" class="selectpicker" id="item-dropdown" title="Select Item">
+        {% for id, name in form.item.field.choices %}
+          <option value="{{ id }}">{{ name }}</option>
+        {% endfor %}
+      </select>
+
     </div>
     <select name="item-dropdown" class="selectpicker" id="item-dropdown" title="Select Item">
       {% for id, name in form.item.field.choices %}
@@ -40,11 +60,27 @@
 
   </div>
 
-  <!-- Button -->
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col">
-        <button type="reset" class="btn btn-secondary btn-lg border-0 btn-block " id="cancel-btn">Cancel</button>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <button type="reset" class="btn btn-secondary btn-lg border-0 btn-block" id="cancel-btn">Cancel</button>
+        </div>
+        <div class="col">
+          <button type="submit" class="btn btn-primary btn-lg border-0 btn-block" id="save-btn">Save</button>
+        </div>
+      </div>
+    </div>
+    
+  </form>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+    $("#category-dropdown").change(function () {
+      var url = $("#saleForm").attr("data-items-url");  // get the url of the `load_items` view
+      var categoryId = $(this).val();                   // get the selected category ID from the HTML input
+
 
 
       </div>
@@ -73,13 +109,12 @@
       }
     });
 
-  });
-</script>
-<script>
-  $("#cancel-btn").click(function () {
-    $('.selectpicker').val('default');
-    $('.selectpicker').selectpicker('refresh');
-  });
-</script>
+  </script>
+  <script>
+    $("#cancel-btn").click(function () {
+      $(".selectpicker").val('default');
+      $(".selectpicker").selectpicker("refresh");
+    });
+  </script>
 
 {% endblock %}

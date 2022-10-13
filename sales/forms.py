@@ -19,21 +19,10 @@ class SaleForm(forms.ModelForm):
                 attrs={
                     "id": "quantity-num-input", 
                     "class": "form-control", 
+                    "min":"0",
                     "value": "1"
                     }
-                ),
-            "category": forms.Select(
-                attrs={
-                    "id": "category-dropdown", 
-                    "class": "form-select"}
-                    ),
-            "item": forms.Select(
-                attrs={
-                    "id": "item-dropdown", 
-                    "class": "form-select"}
-                    )
-            
-            
+                )
         }
 
     def __init__(self, *args, **kwargs):
