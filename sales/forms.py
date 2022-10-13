@@ -8,10 +8,21 @@ class SaleForm(forms.ModelForm):
 
         # Sale Form HTML Widgets Reference
         widgets = {
-            "price": forms.NumberInput(attrs={"id": "price-num-input", "class": "num-input", "value": "0.0"}),
-            "quantity": forms.NumberInput(attrs={"id": "quantity-num-input", "class": "num-input", "value": "1"}),
-            "category": forms.Select(attrs={"id": "category-dropdown", "class": "dropdown"}),
-            "item": forms.Select(attrs={"id": "item-dropdown", "class": "dropdown"})
+            "price": forms.NumberInput(
+                attrs={
+                    "id": "price-num-input", 
+                    "class": "form-control", 
+                    "value": "0.00",
+                    "min":"0"}
+                    ),
+            "quantity": forms.NumberInput(
+                attrs={
+                    "id": "quantity-num-input", 
+                    "class": "form-control", 
+                    "value": "1"
+                    }
+                ),
+            
         }
 
     def __init__(self, *args, **kwargs):

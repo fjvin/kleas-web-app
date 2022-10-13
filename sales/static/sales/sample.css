@@ -1,7 +1,24 @@
-h1 {
-    color: blueviolet;
+#price-num-input {
+    font-family: 'Inter Regular', arial;
+    text-align: right;
+    font-size: 50px;
+    border: none;
+    background-color:#007CFF;
+    color: #FFFFFF;
+    border-radius: 0.5rem;
+    width: 320px;
+    height: 100px;
 }
 
-#category-dropdown {
-    background-color: blueviolet;
+#quantity-num-input {
+    font-family: 'Inter Regular', arial;
+    text-align: right;
+    font-size: 16px;
+    height: 30px;
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    border-radius: 0.5rem;
 }
