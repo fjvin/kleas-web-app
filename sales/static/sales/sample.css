@@ -1,7 +1,10 @@
-h1 {
-    color: blueviolet;
+.logo {
+    font-size: xx-large;
+    font-family: Inter, Arial;
 }
 
-#category-dropdown {
-    background-color: blueviolet;
+.navbar_selection {
+    font-size: large;
+    text-align: right;
+    font-family: Inter, Arial;
 }
