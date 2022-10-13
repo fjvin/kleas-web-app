@@ -2,63 +2,80 @@
 
 {% block content %}
 
-  <h1 class="text-dark ml-3 mt-5 mb-4">Add Transaction</h1>
+<h1 class="text-dark ml-3 mt-5 mb-4">Add Transaction</h1>
 
-  <form method="post" id="saleForm" data-items-url="{% url 'sales:ajax_load_items' %}" novalidate>
-    {% csrf_token %}
+<form method="post" id="saleForm" data-items-url="{% url 'sales:ajax_load_items' %}" novalidate>
+  {% csrf_token %}
 
-    {% for field in form.visible_fields|slice:":2" %}
-      <div class="mb-3 ml-3 mr-3 content">
-        <label for="{{field.id_for_label}}" class="form-label">{{ field.label_tag }}</label>
-        {{ field }}
-      </div>
-      {{ field.errors }}
-    {% endfor %}
-    
-    <div class="form-group ml-3 content">
-      <div>
-        <label for="category-dropdown">Category</label>
-      </div>
-      <select name="category-dropdown" class="selectpicker" id="category-dropdown" title="Select Category">
-        {% for id, name in form.category.field.choices %}
-          {% if name != "---------" %}
-            <option value="{{ id }}">{{ name }}</option>
-          {% endif %}
-        {% endfor %}
-      </select>
+  {% for field in form.visible_fields|slice:":2" %}
+  <div class="mb-3 ml-3 mr-3 content">
+    <label for="{{field.id_for_label}}" class="form-label">{{ field.label_tag }}</label>
+    {{ field }}
+  </div>
+  {{ field.errors }}
+  {% endfor %}
+
+  <div class="form-group ml-3 content">
+    <div>
+      <label for="category-dropdown">Category</label>
     </div>
+    <select name="category-dropdown" class="selectpicker" id="category-dropdown" title="Select Category">
+      {% for id, name in form.category.field.choices %}
+      {% if name != "---------" %}
+      <option value="{{ id }}">{{ name }}</option>
+      {% endif %}
+      {% endfor %}
+    </select>
+  </div>
 
-    <div class="form-group ml-3 content">
-      <div>
-        <label for="item-dropdown">Item</label>
-      </div>
-      <select name="item-dropdown" class="selectpicker" id="item-dropdown" title="Select Item">
-        {% for id, name in form.item.field.choices %}
-          <option value="{{ id }}">{{ name }}</option>
-        {% endfor %}
-      </select>
+  <div class="form-group ml-3 content">
+    <div>
+      <label for="item-dropdown">Item</label>
     </div>
+    <select name="item-dropdown" class="selectpicker" id="item-dropdown" title="Select Item">
+      {% for id, name in form.item.field.choices %}
+      <option value="{{ id }}">{{ name }}</option>
+      {% endfor %}
+    </select>
+  </div>
 
-    <button type="submit" class="btn btn-primary ml-3">Save</button>
-  </form>
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script>
-    $("#category-dropdown").change(function () {
-      var url = $("#saleForm").attr("data-items-url");  // get the url of the `load_items` view
-      var categoryId = $(this).val();                   // get the selected category ID from the HTML input
+  <!-- Button -->
 
-      $.ajax({                                          // initialize an AJAX request
-        url: url,                                       // set the url of the request (= localhost:8000/hr/ajax/load-items/)
-        data: {
-          'category': categoryId                        // add the category id to the GET parameters
-        },
-        success: function (data) {                      // `data` is the return of the `load_items' view function
-          $("#item-dropdown").html(data);
-          $("#item-dropdown").selectpicker('refresh');             // replace the contents of the items input with the data that came from the server
-        }
-      });
+  <div class="row">
+    <div class="col">
 
+      <button type="reset" class="btn btn-secondary btn-lg border-0" id="cancel-btn">Cancel</button>
+
+    </div>
+    <div class="col">
+
+      <button type="submit" class="btn btn-primary btn-lg border-0" id="save-btn">Save</button>
+
+    </div>
+  </div>
+
+
+  <!-- End of Button -->
+
+</form>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+  $("#category-dropdown").change(function () {
+    var url = $("#saleForm").attr("data-items-url");  // get the url of the `load_items` view
+    var categoryId = $(this).val();                   // get the selected category ID from the HTML input
+
+    $.ajax({                                          // initialize an AJAX request
+      url: url,                                       // set the url of the request (= localhost:8000/hr/ajax/load-items/)
+      data: {
+        'category': categoryId                        // add the category id to the GET parameters
+      },
+      success: function (data) {                      // `data` is the return of the `load_items' view function
+        $("#item-dropdown").html(data);
+        $("#item-dropdown").selectpicker('refresh');             // replace the contents of the items input with the data that came from the server
+      }
     });
-  </script>
+
+  });
+</script>
 
 {% endblock %}
