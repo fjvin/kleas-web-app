@@ -1,3 +1,10 @@
+#add-btn {
+    background-color: #6FBAF7;
+}
+
+#cancel-btn {
+    background-color: #CDCDCD;
+}
 .logo {
     font-size: xx-large;
     font-family: Inter, Arial;
