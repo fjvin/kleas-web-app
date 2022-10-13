@@ -12,9 +12,9 @@ class SaleForm(forms.ModelForm):
                 attrs={
                     "id": "price-num-input", 
                     "class": "form-control", 
-                    "value": "0.0"
-                    }
-                ),
+                    "value": "0.00",
+                    "min":"0"}
+                    ),
             "quantity": forms.NumberInput(
                 attrs={
                     "id": "quantity-num-input", 

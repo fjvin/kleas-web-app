@@ -15,5 +15,4 @@ class SaleCreateView(CreateView):
 def load_items(request):
     category_id = request.GET.get('category')
     items = Item.objects.filter(category_id=category_id).order_by('item')
-    print(items)
     return render(request, 'sales/item_options.html', context={'items': items})
