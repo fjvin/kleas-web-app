@@ -29,7 +29,7 @@
 }
 
 #add-btn {
-    background-color: #6FBAF7;
+    background-color: #6FBAF7;   
 }
 
 #cancel-btn {
@@ -45,4 +45,5 @@
 .btn-block {
     padding: 12px;
     border-radius: 5px;
+    
 }
