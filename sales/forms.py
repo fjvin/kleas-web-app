@@ -14,8 +14,9 @@ class SaleForm(forms.ModelForm):
                     "id": "price-num-input", 
                     "class": "form-control",
                     "value":"0.00",
-                    "min":"0",
+                    "min":"0.00",
                     "required": True,
+                    'type': 'currency',
                     }
                 ),
             "quantity": forms.NumberInput(
