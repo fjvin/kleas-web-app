@@ -2,9 +2,49 @@
 {% load static %}
 
 {% block content %}
+<!-- <style>
+    .container-color {
+        background-color: green;
+    }
+
+    .column-color {
+        background-color: red;
+    }
+
+    body {
+        background-color: orange;
+    }
+</style> -->
+
+<body>
+
+    <div style="height: 100px; ">
+        <!-- For top Spacing -->
+    </div>
+
+    <div class="container d-flex justify-content-center container-color">
+        <div class="row">
+            <div class="column column-color">
+
+                <img class="img-fluid center-block d-block mx-auto" src="{% static 'sales/drawable/check-icon.png' %}"
+                    alt="success">
+            </div>
+        </div>
+    </div>
 
 
-<img class="img-fluid rounded mx-auto d-block" src="{% static 'sales/drawable/check-icon.png' %}" alt="success">
+    <div style="height: 100px; ">
+
+
+    </div>
+
+
+
+</body>
+
+
+
+
 
 
 {% endblock content%}
