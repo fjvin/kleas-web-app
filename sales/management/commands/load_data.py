@@ -1,9 +1,9 @@
 from django.core.management.base import BaseCommand
-from sales.models import Category, Item
+from sales.models import Category, Item, PaymentType
 
 
 class Command(BaseCommand):
-    help = 'Load Clothes Categories and Items'
+    help = 'Load Clothes Categories, Items, and Payment Type'
     
     def handle(self, *args, **kwargs):
         Category.objects.all().delete()
@@ -68,3 +68,13 @@ class Command(BaseCommand):
 
         for item in child_girls_items:
             Item.objects.create(item=item, category=child_girls)
+
+
+        PaymentType.objects.all().delete()
+        payment_types = [
+            'cash', 'cashless'
+        ]
+
+        if not PaymentType.objects.count():
+            for payment_type in payment_types:
+                PaymentType.objects.create(payment=payment_type)
