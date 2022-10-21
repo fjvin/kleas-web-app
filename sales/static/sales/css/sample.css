@@ -36,9 +36,9 @@
     background-color: #CDCDCD;
 }
 
-.button-custom {
-    /* border-radius: 20px; */
-    /* width: 100% !important; */
+.mybutton-custom {
+    border-radius: 80%; 
+    width: 100% !important;
 }
 
 /* .btn-block {
