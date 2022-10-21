@@ -37,9 +37,18 @@
 }
 
 
+/* .button-custom {
+    border-radius: 8px;
+    width: 10% !important;
+} */
+
+.button-custom-new {
+    border-radius: 8px;
+    width: 95% !important;
+}
 
 /* .btn-block {
-    padding: 12px;
-    border-radius: 5px;
+    padding: 10% 0;
+    border-radius: 90px;
     
 } */
