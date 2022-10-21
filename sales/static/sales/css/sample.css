@@ -37,12 +37,12 @@
 }
 
 .button-custom {
-    border-radius: 8px;
-    width: 95% !important;
+    /* border-radius: 20px; */
+    /* width: 100% !important; */
 }
 
-.btn-block {
+/* .btn-block {
     padding: 12px;
     border-radius: 5px;
     
-}
+} */
