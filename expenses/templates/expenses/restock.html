@@ -6,12 +6,14 @@
 <h2 class="text-dark ms-3 mt-5 m-4">Add Expenses</h2>
 
 <!-- Expenses Type Tab -->
-<div class="container">
+
+<div class="form-group m-4">
   <nav class="nav nav-pills nav-justified">
     <a class="nav-item nav-link active" href="{% url 'expenses:restock' %}">Restock</a>
     <a class="nav-item nav-link" href="{% url 'expenses:store' %}">Store</a>
   </nav>
 </div>
+
 
 <!-- Clothes Restock Transaction Form -->
 <form method="post" id="restockForm" data-items-url="{% url 'sales:ajax_load_items' %}">
@@ -20,19 +22,18 @@
   <!-- Price Input -->
   <div class="form-group m-4">
     <div>
-        <label for="price-num-input">Price</label>
+      <label for="price-num-input">Price</label>
     </div>
-    <input type="currency" name="price" id="price-num-input" class="form-control" 
-    value="0.00" min="0.00" required step="0.01">
+    <input type="currency" name="price" id="price-num-input" class="form-control" value="0.00" min="0.00" required
+      step="0.01">
   </div>
-  
+
   <!-- Quantity Input -->
   <div class="form-group m-4">
     <div>
-        <label for="quantity-num-input">Quantity</label>
+      <label for="quantity-num-input">Quantity</label>
     </div>
-    <input type="number" name="quantity" id="quantity-num-input" class="form-control" 
-    min="1" value="1" required>
+    <input type="number" name="quantity" id="quantity-num-input" class="form-control" min="1" value="1" required>
   </div>
 
   <!-- Payment Input -->
@@ -40,8 +41,8 @@
     <div>
       <label for="payment-dropdown">Payment</label>
     </div>
-    <select class="selectpicker" title="Select Payment" name="payment" 
-            id="payment-dropdown" data-width="100%" data-style="btn-outline-primary" required>
+    <select class="selectpicker" title="Select Payment" name="payment" id="payment-dropdown" data-width="100%"
+      data-style="btn-outline-primary" required>
       <option value="1">Cash</option>
       <option value="2">Cashless</option>
     </select>
@@ -52,8 +53,8 @@
     <div>
       <label for="category-dropdown">Category</label>
     </div>
-    <select class="selectpicker" title="Select Category" name="category" 
-        data-width="100%" data-style="btn-outline-primary" id="category-dropdown" required>
+    <select class="selectpicker" title="Select Category" name="category" data-width="100%"
+      data-style="btn-outline-primary" id="category-dropdown" required>
       <option value="1">Men</option>
       <option value="2">Women</option>
       <option value="3">Child Boys</option>
@@ -64,24 +65,29 @@
   <!-- Item Dropdown -->
   <div class="form-group m-4">
     <div>
-        <label for="item-dropdown">Item</label>
+      <label for="item-dropdown">Item</label>
     </div>
-    <select class="selectpicker" title="Select Item" name="item" 
-        data-width="100%" data-style="btn-outline-primary" id="item-dropdown" required>
+    <select class="selectpicker" title="Select Item" name="item" data-width="100%" data-style="btn-outline-primary"
+      id="item-dropdown" required>
     </select>
   </div>
 
   <!-- Cancel and Save Button -->
-  <div class="container pb-5">
-    <div class="row no-gutters ">
+  <!-- <div class="container pb-5"> -->
+  <div class="form-group m-4 pb-5">
+    <div class="row  ">
       <div class="col-6 d-flex justify-content-center">
         <button type="reset" class="btn btn-secondary btn-lg border-0 button-custom " id="cancel-btn">Cancel</button>
       </div>
       <div class="col-6 d-flex justify-content-center">
-        <button type="submit" class="btn btn-primary btn-lg border-0 button-custom" id="save-btn" onClick="check();">Save</button>
+        <button type="submit" class="btn btn-primary btn-lg border-0 button-custom" id="save-btn"
+          onClick="check();">Save</button>
       </div>
     </div>
+
   </div>
+
+  <!-- </div> -->
 </form>
 
 <!-- chained dropdown dependencies -->
