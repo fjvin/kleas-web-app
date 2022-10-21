@@ -76,7 +76,7 @@ class SaleForm(forms.ModelForm):
 
         if 'category' in self.data:
             try:
-                category_id = int(self.data.get('category'))
+                category_id = int(self.data.get('category'))  # type: ignore
                 self.fields['item'].queryset = Item.objects.filter(category_id=category_id).order_by('item')
             except (ValueError, TypeError):
                 pass  # invalid input from the client; ignore and fallback to empty items queryset

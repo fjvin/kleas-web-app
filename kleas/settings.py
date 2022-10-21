@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # kleas's apps
-    "sales.apps.SalesConfig"
+    "sales.apps.SalesConfig",
+    "expenses.apps.ExpensesConfig",
 ]
 
 MIDDLEWARE = [

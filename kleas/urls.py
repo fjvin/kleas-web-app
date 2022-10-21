@@ -21,6 +21,7 @@ from sales.views import SaleCreateView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("sales/", include("sales.urls")),
+    path("expenses/", include("expenses.urls")),
 
     # home page
     path("", SaleCreateView.as_view(), name="add"),
