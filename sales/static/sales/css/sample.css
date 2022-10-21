@@ -36,13 +36,24 @@
     background-color: #CDCDCD;
 }
 
-.button-custom {
-    border-radius: 8px;
-    width: 95% !important;
-}
 
-.btn-block {
-    padding: 12px;
-    border-radius: 5px;
+
+.button-custom {
+    border-radius: 10px;
+    width: 100% !important;
+    font-family: "Inter", Arial;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 15px 0;
     
 }
+
+.container-custom{
+    padding: 0 5px;
+}
+
+/* .btn-block {
+    padding: 10% 0;
+    border-radius: 90px;
+    
+} */
