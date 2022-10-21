@@ -15,11 +15,20 @@ class Item(models.Model):
     def __str__(self):
         return self.item
 
+
+class PaymentType(models.Model):
+    payment = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.payment
+
+
 class Sale(models.Model):
-    sales_id = models.AutoField(primary_key=True)
-    price = models.FloatField(validators=[MinValueValidator(limit_value=0)])
+    price = models.DecimalField(max_digits=6, decimal_places=2, 
+                                validators=[MinValueValidator(limit_value=0.00)])
     quantity = models.IntegerField(validators=[MinValueValidator(limit_value=1)])
     purchase_date = models.DateTimeField(auto_now_add=True)
+    payment = models.ForeignKey(PaymentType, on_delete=models.SET_NULL, null=True)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
     item = models.ForeignKey(Item, on_delete=models.SET_NULL, null=True)
 

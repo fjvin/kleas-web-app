@@ -10,34 +10,21 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
+        ('sales', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Category',
+            name='ExpensesStore',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('amount', models.DecimalField(decimal_places=2, max_digits=6, validators=[django.core.validators.MinValueValidator(limit_value=0.0)])),
+                ('date', models.DateField()),
                 ('category', models.CharField(max_length=20)),
             ],
         ),
         migrations.CreateModel(
-            name='Item',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('item', models.CharField(max_length=20)),
-                ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='categories', to='sales.category')),
-            ],
-        ),
-        migrations.CreateModel(
-
-            name='PaymentType',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('payment', models.CharField(max_length=20)),
-            ],
-        ),
-        migrations.CreateModel(
-            name='Sale',
+            name='ExpensesRestock',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('price', models.DecimalField(decimal_places=2, max_digits=6, validators=[django.core.validators.MinValueValidator(limit_value=0.0)])),
