@@ -41,8 +41,10 @@
 .button-custom {
     border-radius: 10px;
     width: 100% !important;
-    font-family: 'Inter', sans-serif;
-    /* padding: 5px 0 ; */
+    font-family: "Inter", Arial;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 10% 0;
     
 }
 
