@@ -1,0 +1,12 @@
+#date {
+    border: 1px solid #007cff;
+    border-radius: 5px;
+    background-color:white;
+    padding: 3px 5px;
+    width: 100%;
+    color:#999999;
+  }
+
+  ::-webkit-calendar-picker-indicator {
+    filter: #999999;
+}
