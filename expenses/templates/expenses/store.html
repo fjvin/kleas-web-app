@@ -6,12 +6,15 @@
 <h2 class="text-dark ms-3 mt-5 m-4">Add Expenses</h2>
 
 <!-- Expenses Type Tab -->
-<div class="container">
+
+<div class="form-group m-4">
   <nav class="nav nav-pills nav-justified">
     <a class="nav-item nav-link" href="{% url 'expenses:restock' %}">Restock</a>
     <a class="nav-item nav-link active" href="{% url 'expenses:store' %}">Store</a>
   </nav>
 </div>
+
+
 
 <!-- Store Expenses Transaction Form -->
 <form method="post" id="storeExpensesForm">
