@@ -15,14 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from sales.views import SaleCreateView
+from sales import views as sale_views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("sales/", include("sales.urls")),
+    path("expenses/", include("expenses.urls")),
 
     # home page
-    path("", SaleCreateView.as_view(), name="add"),
-
+    path("", sale_views.add, name="add"),
 ]

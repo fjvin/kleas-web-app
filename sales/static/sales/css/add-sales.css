@@ -1,0 +1,26 @@
+#category-dropdown {
+    background-color: blueviolet;
+}
+
+#item-dropdown {
+    background-color: blueviolet;
+}
+
+#price-num-input {
+    font-family: 'Inter', sans-serif;
+    text-align: right;
+    font-size: 50px;
+    border: none;
+    background-color:#007CFF;
+    color: #FFFFFF;
+    border-radius: 0.5rem;
+}
+
+#quantity-num-input {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    background: #FFFFFF;
+    border-radius: 0.5rem;
+    border: #6FBAF7 solid;
+    text-align: center;
+}
