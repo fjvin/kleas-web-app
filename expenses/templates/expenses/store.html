@@ -15,51 +15,53 @@
 
 <!-- Store Expenses Transaction Form -->
 <form method="post" id="storeExpensesForm">
-    {% csrf_token %}
+  {% csrf_token %}
 
-    <!-- Price Input -->
-    <div class="form-group m-4">
-        <div>
-            <label for="amount-input">Amount</label>
-        </div>
-        <input type="currency" name="amount" id="price-num-input" class="form-control" 
-        value="0.00" min="0.00" required step="0.01">
+  <!-- Price Input -->
+  <div class="form-group m-4">
+    <div>
+      <label for="amount-input">Amount</label>
     </div>
+    <input type="currency" name="amount" id="price-num-input" class="form-control" value="0.00" min="0.00" required
+      step="0.01">
+  </div>
 
-    <!-- Quantity Input -->
-    <div class="form-group m-4">
-        <div>
-            <label for="date">Month</label>
-        </div>
-        <input type="date" name="date" id="date">
+  <!-- Quantity Input -->
+  <div class="form-group m-4">
+    <div>
+      <label for="date">Month</label>
     </div>
+    <input type="date" name="date" id="date">
+  </div>
 
-    <!-- Payment Input -->
-    <div class="form-group m-4">
-        <div>
-          <label for="store-expenses-dropdown">Category</label>
-        </div>
-        <select class="selectpicker" title="Select Category" name="category" 
-            data-width="100%" data-style="btn-outline-primary" id="store-expenses-dropdown" required>
-            <optgroup label="Utilities">
-                <option>Electricity</option>
-                <option>Water</option>
-            </optgroup>
-            <option>Tax</option>
-            <option>Lease</option>
-        </select>
+  <!-- Payment Input -->
+  <div class="form-group m-4">
+    <div>
+      <label for="store-expenses-dropdown">Category</label>
     </div>
+    <select class="selectpicker" title="Select Category" name="category" data-width="100%"
+      data-style="btn-outline-primary" id="store-expenses-dropdown" required>
+      <optgroup label="Utilities">
+        <option>Electricity</option>
+        <option>Water</option>
+      </optgroup>
+      <option>Tax</option>
+      <option>Lease</option>
+    </select>
+  </div>
 
   <!-- Cancel and Save Button -->
-  <div class="container pb-5">
-    <div class="row no-gutters ">
+  <div class="form-group m-4 pb-5">
+    <div class="row  ">
       <div class="col-6 d-flex justify-content-center">
         <button type="reset" class="btn btn-secondary btn-lg border-0 button-custom " id="cancel-btn">Cancel</button>
       </div>
       <div class="col-6 d-flex justify-content-center">
-        <button type="submit" class="btn btn-primary btn-lg border-0 button-custom" id="save-btn" onClick="check();">Save</button>
+        <button type="submit" class="btn btn-primary btn-lg border-0 button-custom" id="save-btn"
+          onClick="check();">Save</button>
       </div>
     </div>
+
   </div>
 
 </form>

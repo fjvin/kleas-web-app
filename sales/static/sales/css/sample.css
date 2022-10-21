@@ -37,12 +37,18 @@
 }
 
 
+
 .button-custom {
     border-radius: 10px;
-    width: 95% !important;
+    width: 100% !important;
     font-family: 'Inter', sans-serif;
+    /* padding: 5px 0 ; */
+    
 }
 
+.container-custom{
+    padding: 0 5px;
+}
 
 /* .btn-block {
     padding: 10% 0;
