@@ -5,6 +5,14 @@
 
 <h2 class="text-dark ms-3 mt-5 m-4">Transactions</h2>
 
+<div class="form-group m-4">
+    <nav class="nav nav-pills nav-justified">
+      <a class="nav-item nav-link active" href="{% url 'sales:transactions' %}">Sales</a>
+      <a class="nav-item nav-link" href="{% url 'sales:transactions' %}">Expenses</a>
+    </nav>
+</div>
+  
+
 <div class="m-4">
 <table id="myTable" class="table table-striped table-sm" cellspacing="0" width="100%">
     <thead>
