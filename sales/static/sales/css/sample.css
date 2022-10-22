@@ -30,10 +30,12 @@
 
 #add-btn {
     background-color: #6FBAF7;   
+    margin-left: 10px;
 }
 
 #cancel-btn {
     background-color: #CDCDCD;
+    margin-right: 10px;
 }
 
 
@@ -46,15 +48,35 @@
     font-size: 15px;
     padding: 15px 0;
     
+    
 }
 
-.test-color{
+/* .test-color{
     background-color: red;
-}
+} */
+
+
+/* .row.custom-gutters{
+    margin-left: 1px;
+    margin-right: 1px;
+
+} */
 
 .container-custom{
     padding: 0 5px;
 }
+
+
+
+.nav-pills .nav-link{
+    font-family: "Inter", Arial;
+    padding: 10px 0;
+    border-radius: 10px;
+    
+}
+
+
+
 
 /* .btn-block {
     padding: 10% 0;
