@@ -49,6 +49,29 @@
     padding: 0 5px;
 }
 
+.navbar .nav-link {
+    position: relative;
+    color: #f7f7f7;
+    text-decoration: none;
+    padding: 7px 0;
+}
+    
+.navbar .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0%;
+    height: 2px;
+    background: black;
+    transition: all 250ms ease-in-out;
+}
+  
+.navbar .nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
 /* .btn-block {
     padding: 10% 0;
     border-radius: 90px;
