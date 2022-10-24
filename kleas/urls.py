@@ -22,8 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("sales/", include("sales.urls")),
     path("expenses/", include("expenses.urls")),
-    path("transactions/", include("transactions.urls")),
-
     # home page
     path("", sale_views.add, name="add"),
 ]
