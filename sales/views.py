@@ -25,6 +25,7 @@ def add(request):
 
 class SaleTransactions(ListView):
     model = Sale
+    queryset = Sale.objects.order_by("-purchase_date")
     template_name = "sales/transactions.html"
     context_object_name = "sales"
 
