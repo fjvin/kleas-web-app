@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<h2 class="text-dark ms-3 mt-5 m-4">Add Sales</h2>
+<h2 class="text-dark ms-3 mt-5 m-4">{{ title }}</h2>
 
 <!-- Sale Transaction Form -->
 <form method="post" id="saleForm" data-items-url="{% url 'sales:ajax_load_items' %}">

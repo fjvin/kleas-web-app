@@ -21,6 +21,7 @@
           <th scope="col">Item</th>
           <th scope="col">Price</th>
           <th scope="col">Purchase Date</th>
+          <th scope="col">Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -30,6 +31,14 @@
                 <td>{{ sale.item.item }}</td>
                 <td>{{ sale.price }}</td>
                 <td>{{ sale.purchase_date }}</td>
+                <td>
+                    <a href="/sales/edit_sale/{{sale.id}}">
+                        <button type="button" class="btn btn-primary">Edit</button>
+                    </a>
+                    <a href="/sales/delete_sale/{{sale.id}}">
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </a>
+                </td>
             </tr>
         {% endfor %}
     </tbody>
