@@ -32,11 +32,12 @@
                 <td>{{ sale.price }}</td>
                 <td>{{ sale.purchase_date }}</td>
                 <td>
+                    <div>
                     <a href="/sales/edit_sale/{{sale.id}}">
-                        <button type="button" class="btn btn-primary">Edit</button>
+                        <button type="button" class="btn btn-primary mb-1 mt-1"><i class="fa-solid fa-pencil"></i></button>
                     </a>
                     <div class="container d-flex justify-content-center">
-                        <button class="btn btn-danger  " data-toggle="modal" data-target="#my-modal">Delete</button>
+                        <button class="btn btn-danger  " data-toggle="modal" data-target="#my-modal"><i class="fa-solid fa-trash"></i></button>
                         <div id="my-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content border-0">   
@@ -57,17 +58,26 @@
             </tr>
         {% endfor %}
     </tbody>
-    
 
 </table>
 </div>
 
 <script src="{% static 'sales/js/jquery-3.3.1.min.js' %}" type="text/javascript"></script>
-<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<!-- <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js" type="text/javascript"></script> -->
+<script src="{% static 'sales/js/jquery.dataTables.min.js' %}" type="text/javascript"></script>
 
 <script>
-    $(document).ready( function () {
+$(document).ready(function () {
+    $('#myTable').DataTable({
+        order: [[3, 'desc']],
+    });
+});
+</script>
+
+<script>
+$(document).ready( function () {
     $('#myTable').DataTable();
 } );
 </script>
+
 {% endblock %}
