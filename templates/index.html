@@ -50,6 +50,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportContent">
                 <ul class="navbar-nav ml-auto text-right navbar_selection">
+
+                    <!-- hello message to user -->
+                    <li class="nav-item">
+                        <span>Hello, {{request.user}}</span>
+                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link active" href="{% url 'sales:add' %}">Sales</a>
                     </li>
@@ -63,7 +69,7 @@
                         <a class="nav-link" href="#">Analytics</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Logout</a>
+                        <a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a>
                     </li>
                 </ul>
             </div>
