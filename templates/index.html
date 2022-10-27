@@ -32,6 +32,11 @@
 
     <!-- transaction table css -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/rowreorder/1.2.8/css/rowReorder.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.dataTables.min.css">
+
+    <!-- icons css -->
+    <script src="https://kit.fontawesome.com/537675028e.js" crossorigin="anonymous"></script>
     
 </head>
 
@@ -53,11 +58,11 @@
 
                     <!-- hello message to user -->
                     <li class="nav-item">
-                        <span>Hello, {{request.user}}</span>
+                        <a class="nav-link active">Hello, {{request.user}}</a>
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'sales:add' %}">Sales</a>
+                        <a class="nav-link" href="{% url 'sales:add' %}">Sales</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'expenses:restock' %}">Expenses</a>

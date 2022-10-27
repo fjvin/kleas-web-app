@@ -47,6 +47,7 @@
     padding: 15px 0;
 }
 
+
 /* .test-color{
     background-color: red;
 } */
@@ -55,7 +56,6 @@
 /* .row.custom-gutters{
     margin-left: 1px;
     margin-right: 1px;
-
 } */
 
 .container-custom{
@@ -89,6 +89,17 @@
 .navbar .nav-link:hover::after {
     width: 100%;
     left: 0;
+}
+
+
+.bootstrap-select>.dropdown-toggle.bs-placeholder{
+    border-radius: 10px;
+    padding: 20px .75rem;
+}
+
+.bootstrap-select>.dropdown-toggle{
+    border-radius: 10px;
+    padding: 20px .75rem;
 }
 
 /* .btn-block {
