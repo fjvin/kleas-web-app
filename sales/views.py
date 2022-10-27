@@ -4,26 +4,29 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.urls import reverse_lazy, reverse
 from .models import Sale, Item, Category, PaymentType
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class SaleTransactions(ListView):
+class SaleTransactions(LoginRequiredMixin, ListView):
     model = Sale
     queryset = Sale.objects.order_by("-purchase_date")
     template_name = "sales/transactions.html"
     context_object_name = "sales"
 
-class SaleEdit(UpdateView):
+class SaleEdit(LoginRequiredMixin, UpdateView):
     model = Sale
     fields = ["price", "quantity", "payment", "category", "item"]
     template_name = "sales/add.html"
     extra_context = {"title": "Edit Sale"}
     success_url = reverse_lazy("sales:transactions")
 
-class SaleDelete(DeleteView):
+class SaleDelete(LoginRequiredMixin, DeleteView):
     model = Sale
     success_url = reverse_lazy("sales:transactions")
     template_name = "sales/delete.html"
 
+@login_required
 def add(request):
 
     context = {"title": "Add Sales"}
@@ -43,7 +46,7 @@ def add(request):
     else:
         return render(request, "sales/add.html", context=context)
 
-
+@login_required(login_url='/accounts/login')
 def load_items(request):
     category_id = request.GET.get('category')
     items = Item.objects.filter(category_id=category_id).order_by('item')

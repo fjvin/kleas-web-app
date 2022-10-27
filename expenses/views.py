@@ -3,9 +3,11 @@ from django.contrib import messages
 from django.urls import reverse
 from .models import ExpensesRestock, ExpensesStore
 from sales.models import PaymentType, Category, Item
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
+@login_required
 def restock(request):
     if request.method == "POST":
         restockObj = ExpensesRestock()
@@ -22,7 +24,7 @@ def restock(request):
     else:
         return render(request, "expenses/restock.html")
 
-
+@login_required
 def store(request):
     if request.method == "POST":
         expense = ExpensesStore()

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     # kleas's apps
     "sales.apps.SalesConfig",
     "expenses.apps.ExpensesConfig",
+    "accounts.apps.AccountsConfig",
 ]
 
 MIDDLEWARE = [
