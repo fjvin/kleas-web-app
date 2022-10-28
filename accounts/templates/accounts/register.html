@@ -41,6 +41,10 @@
                 </div>
                 <button type='submit' class="btn btn-primary mt-4">Register</button>
                 <p>Have an account? <a href='{% url 'accounts:login' %}'>Login</a></p>
+                
+                <!-- display form errors (if any) -->
+                {{form.errors}}
+
               </div>
             </div>
           </div>
