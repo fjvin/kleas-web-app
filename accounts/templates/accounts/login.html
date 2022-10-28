@@ -3,37 +3,38 @@
 
 {% block content %}
 
-<img src="{% static 'sales/drawable/kleas_logo.png' %}" alt="Klea's logo" width="130" height="130" class="mt-5 mx-auto d-block rounded-circle" />
+<img src="{% static 'sales/drawable/kleas_logo.png' %}" alt="Klea's logo" width="130" height="130"
+  class="mt-5 mx-auto d-block rounded-circle" />
 
 <form method='POST' action=''>
 
-    {% csrf_token %}
+  {% csrf_token %}
 
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-12 col-md-8 col-lg-8 col-xl-6">
-          <div class="row">
-            <div class="col text-center">
-              <h2 class="h1 text-dark ms-3 mt-5 m-4">Welcome</h2>
-            </div>
-          </div>
-          <div class="row align-items-center">
-            <div class="col mt-4">
-              <input type="text" class="form-control" name='username' placeholder="Username">
-            </div>
-          </div>
-          <div class="row align-items-center">
-            <div class="col mt-4">
-              <input type="password" class="form-control" name='password' placeholder="Password">
-            </div>
-          </div>
-              <button class="btn btn-primary mt-4">Login</button>
-              <p>Don't have an account? <a href='{% url 'accounts:register' %}'>Register</a></p>
-            </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-8 col-xl-6">
+        <div class="row">
+          <div class="col text-center">
+            <h2 class="h1 text-dark ms-3 mt-5 m-4">Welcome</h2>
           </div>
         </div>
+        <div class="row align-items-center">
+          <div class="col mt-4">
+            <input type="text" class="form-control" name='username' placeholder="Username">
+          </div>
+        </div>
+        <div class="row align-items-center">
+          <div class="col mt-4">
+            <input type="password" class="form-control" name='password' placeholder="Password">
+          </div>
+        </div>
+        <button class="btn btn-primary mt-4 button-custom">Login</button>
+        <p>Don't have an account? <a href="{% url 'accounts:register' %}"> Register</a></p>
       </div>
     </div>
+  </div>
+  </div>
+  </div>
 </form>
 
 {% endblock %}
