@@ -126,6 +126,13 @@
     padding: 20px .75rem;
 }
 
+/* .align {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} */
+
 /* .btn-block {
     padding: 10% 0;
     border-radius: 90px;
