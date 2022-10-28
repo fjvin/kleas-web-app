@@ -21,16 +21,21 @@
         </div>
         <div class="row align-items-center">
           <div class="col mt-4">
+            <label>Username</label>
             <input type="text" class="form-control" name='username' placeholder="Username">
           </div>
         </div>
         <div class="row align-items-center">
           <div class="col mt-4">
+            <label>Password</label>
             <input type="password" class="form-control" name='password' placeholder="Password">
           </div>
         </div>
-        <button class="btn btn-primary mt-4 button-custom">Login</button>
-        <p>Don't have an account? <a href="{% url 'accounts:register' %}"> Register</a></p>
+        <button class="btn btn-primary mt-4 button-login">Login</button>
+        <button type="reset" class="btn btn btn-outline-secondary button-login-cancel">Cancel</button>
+        <p class="text-center mt-4"> <a href="www.google.com">Forgot Password?</a> </p>
+
+
       </div>
     </div>
   </div>
