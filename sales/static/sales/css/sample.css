@@ -97,6 +97,11 @@
     padding: 20px .75rem;
 }
 
+.btn {
+    border-radius: 10px;
+}
+
+
 .bootstrap-select>.dropdown-toggle{
     border-radius: 10px;
     padding: 20px .75rem;

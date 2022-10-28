@@ -16,3 +16,12 @@
     border: #6FBAF7 solid;
     text-align: center;
 }
+
+.button-custom {
+    border-radius: 10px;
+    width: 100% !important;
+    font-family: "Inter", Arial;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 15px 0;
+}
