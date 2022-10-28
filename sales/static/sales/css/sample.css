@@ -47,6 +47,25 @@
     padding: 15px 0;
 }
 
+.button-login {
+    border-radius: 10px;
+    width: 100% !important;
+    font-family: "Inter", Arial;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 10px 0;
+
+}
+.button-login-cancel {
+    border-radius: 10px;
+    width: 100% !important;
+    font-family: "Inter", Arial;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 10px 0;
+    margin-top: 10px;
+}
+
 
 /* .test-color{
     background-color: red;
