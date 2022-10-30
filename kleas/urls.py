@@ -19,10 +19,14 @@ from django.views.generic import RedirectView
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # home page (leads to add sales)
+    path('', RedirectView.as_view(url='sales')),
+    # sales app url patterns
     path("sales/", include("sales.urls")),
+    # expenses app url patterns
     path("expenses/", include("expenses.urls")),
+    # accounts app url patterns
     path('accounts/', include('accounts.urls')),
-
-    path('', RedirectView.as_view(url='sales')), # home page
+    # django admin url patterns
+    path('admin/', admin.site.urls),
 ]

@@ -5,8 +5,8 @@
 
 <h2 class="text-dark ms-3 mt-5 m-4">{{ title }}</h2>
 
-<!-- Sale Transaction Form -->
-<form method="post" id="saleForm" data-items-url="{% url 'sales:ajax_load_items' %}">
+<!-- Edit Sale Transaction Form -->
+<form method="post" id="saleForm" action="update/{{sale.id}}" data-items-url="{% url 'sales:ajax_load_items' %}">
   {% csrf_token %}
 
   <!-- Price Input -->
@@ -14,8 +14,8 @@
     <div>
       <label for="price-num-input">Price</label>
     </div>
-    <input type="currency" name="price" id="price-num-input" class="form-control" value="0.00" min="0.00" required
-      step="0.01">
+    <input type="currency" name="price" id="price-num-input" class="form-control" value="{{sale.price}}" 
+        min="0.00" step="0.01" required>
   </div>
 
   <!-- Quantity Input -->
@@ -23,7 +23,8 @@
     <div>
       <label for="quantity-num-input">Quantity</label>
     </div>
-    <input type="number" name="quantity" id="quantity-num-input" class="form-control" min="1" value="1" required>
+    <input type="number" name="quantity" id="quantity-num-input" class="form-control" min="1" 
+    value="{{sale.quantity}}" required>
   </div>
 
   <!-- Payment Input -->
