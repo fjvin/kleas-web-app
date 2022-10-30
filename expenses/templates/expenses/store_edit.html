@@ -3,19 +3,10 @@
 
 {% block content %}
 
-<h2 class="text-dark ms-3 mt-5 m-4">Add Expenses</h2>
-
-<!-- Expenses Type Tab -->
-
-<div class="form-group m-4">
-  <nav class="nav nav-pills nav-justified">
-    <a class="nav-item  nav-link" href="{% url 'expenses:restock' %}">Restock</a>
-    <a class="nav-item  nav-link active" href="{% url 'expenses:store' %}">Store</a>
-  </nav>
-</div>
+<h2 class="text-dark ms-3 mt-5 m-4">Edit Store Expense</h2>
 
 <!-- Store Expenses Transaction Form -->
-<form method="post" id="storeExpensesForm">
+<form method="post" id="storeExpensesForm" action="update/{{expense.id}}">
   {% csrf_token %}
 
   <!-- Price Input -->
@@ -23,8 +14,8 @@
     <div>
       <label for="amount-input">Amount</label>
     </div>
-    <input type="currency" name="amount" id="price-num-input" class="form-control" value="0.00" min="0.00" required
-      step="0.01">
+    <input type="currency" name="amount" id="price-num-input" class="form-control" value="{{expense.amount}}" 
+        min="0.00" required step="0.01">
   </div>
 
   <!-- Quantity Input -->
@@ -32,7 +23,7 @@
     <div>
       <label for="date">Date</label>
     </div>
-    <input type="date" name="date" id="date">
+    <input type="date" name="date" id="date" value="{{expense.date}}">
   </div>
 
   <!-- Payment Input -->

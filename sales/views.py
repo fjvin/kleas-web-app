@@ -1,4 +1,4 @@
-from django.views.generic import ListView, UpdateView
+from django.views.generic import ListView
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.urls import reverse_lazy, reverse
