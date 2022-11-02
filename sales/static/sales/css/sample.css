@@ -128,6 +128,10 @@
     padding: 20px .75rem;
 }
 
+table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before, table.dataTable.dtr-inline.collapsed>tbody>tr>th.dtr-control:before {
+    background-color: #007CFF !important;
+}
+
 /* .align {
     position: absolute;
     top: 50%;
