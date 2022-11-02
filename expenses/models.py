@@ -5,6 +5,7 @@ import sales
 
 # Create your models here.
 
+# expenses-restock table
 class ExpensesRestock(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2, 
                                 validators=[MinValueValidator(limit_value=0.00)])
@@ -17,6 +18,7 @@ class ExpensesRestock(models.Model):
     def __str__(self):
         return f"{self.category}-{self.item}"
 
+# expenses-store table
 class ExpensesStore(models.Model):
     amount = models.DecimalField(max_digits=6, decimal_places=2, 
                                 validators=[MinValueValidator(limit_value=0.00)])
