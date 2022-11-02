@@ -7,14 +7,20 @@ from django.contrib.auth.decorators import login_required
 
 
 @login_required
-def transactions(request):
-    restock_expenses = ExpensesRestock.objects.all()
+def transactions_store(request):
     store_expenses = ExpensesStore.objects.all()
     context = {
-        'restock_expenses': restock_expenses,
-        'store_expenses': store_expenses
+        'store_expenses': store_expenses,
         }
-    return render(request, 'expenses/transactions.html', context=context)
+    return render(request, 'expenses/store_transactions.html', context=context)
+
+@login_required
+def transactions_restock(request):
+    restock_expenses = ExpensesRestock.objects.all()
+    context = {
+        'restock_expenses': restock_expenses,
+        }
+    return render(request, 'expenses/restock_transactions.html', context=context)
 
 # add restock expenses
 @login_required
@@ -54,7 +60,7 @@ def update_restock(request, pk):
     expense.category = Category.objects.get(id=request.POST['category'])
     expense.item = Item.objects.get(id=request.POST['item'])
     expense.save()
-    return redirect(reverse('expenses:transactions'))
+    return redirect(reverse('expenses:transactions_restock'))
 
 # edit store record
 @login_required
@@ -73,7 +79,21 @@ def update_store(request, pk):
     expense.date = request.POST['date']
     expense.category = request.POST['category']
     expense.save()
-    return redirect(reverse('expenses:transactions'))
+    return redirect(reverse('expenses:transactions_store'))
+
+# delete restock expenses function-based view
+@login_required
+def delete_restock(request, pk):
+    expense = ExpensesRestock.objects.get(id=pk)
+    expense.delete()
+    return redirect(reverse('expenses:transactions_restock'))
+
+# delete store expenses function-based view
+@login_required
+def delete_store(request, pk):
+    expense = ExpensesStore.objects.get(id=pk)
+    expense.delete()
+    return redirect(reverse('expenses:transactions_store'))
 
 # add store expense
 @login_required
