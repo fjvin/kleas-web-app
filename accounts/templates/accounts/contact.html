@@ -2,11 +2,33 @@
 {% load static %}
 
 {% block content %}
-<div class="container">
-    <iframe
-    src="https://docs.google.com/forms/d/e/1FAIpQLSdm7ldyPOxg43p3ypaOrQN5JqSPa9qQFmtfmzmOWH-lqJLwpQ/viewform?embedded=true"
-    width="100%" height="947" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+<br>
+
+<img src="{% static 'sales/drawable/kleas_logo.png' %}" alt="Klea's logo" width="130" height="130"
+    class="mt-5 mx-auto d-block rounded-circle" />
+
+<br>
+<br>
+<div class="col text-center">
+    <h2 class="h1 text-dark ms-3 m-4">Reset Password Form</h2>
 </div>
+
+<div class="container mt-5 pb-5">
+    <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSdm7ldyPOxg43p3ypaOrQN5JqSPa9qQFmtfmzmOWH-lqJLwpQ/viewform?usp=pp_url&entry.1065046570=I+want+to+reset+my+password+on+my+account.+Thank+you!"
+        width="100%" height="1000" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-8 col-xl-6">
+
+            <button class="btn btn-primary button-done-forgot" onClick="history.back();">Done</button>
+        </div>
+    </div>
+
+</div>
+
+
+
+
 
 
 {% endblock %}
