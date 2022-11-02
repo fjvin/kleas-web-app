@@ -32,7 +32,7 @@
     <div>
       <label for="payment-dropdown">Payment Type</label>
     </div>
-    <select class="selectpicker" title="Select Payment" name="payment" id="payment-dropdown" data-width="100%"
+    <select class="selectpicker" title="{{sale.payment}}" name="payment" id="payment-dropdown" data-width="100%"
       data-style="btn-outline-primary" required>
       <option value="1">Cash</option>
       <option value="2">Cashless</option>
@@ -44,7 +44,7 @@
     <div>
       <label for="category-dropdown">Category</label>
     </div>
-    <select class="selectpicker" title="Select Category" name="category" data-width="100%"
+    <select class="selectpicker" title="{{sale.category}}" name="category" data-width="100%"
       data-style="btn-outline-primary" id="category-dropdown" required>
       <option value="1">Men</option>
       <option value="2">Women</option>
@@ -58,7 +58,7 @@
     <div>
       <label for="item-dropdown">Item</label>
     </div>
-    <select class="selectpicker" title="Select Item" name="item" data-width="100%" data-style="btn-outline-primary"
+    <select class="selectpicker" title="{{sale.item}}" name="item" data-width="100%" data-style="btn-outline-primary"
       id="item-dropdown" required>
     </select>
   </div>
