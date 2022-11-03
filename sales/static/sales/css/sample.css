@@ -34,7 +34,7 @@
 }
 
 #cancel-btn {
-    background-color: #CDCDCD;
+    background-color: #6D6D6D;
     margin-right: 10px;
 }
 
@@ -129,6 +129,7 @@
 .bootstrap-select>.dropdown-toggle.bs-placeholder{
     border-radius: 10px;
     padding: 20px .75rem;
+    background-color: #FFFFFF;
 }
 
 .btn {
@@ -139,6 +140,7 @@
 .bootstrap-select>.dropdown-toggle{
     border-radius: 10px;
     padding: 20px .75rem;
+    background-color: #FFFFFF;
 }
 
 /* .align {
@@ -152,3 +154,5 @@
     padding: 10% 0;
     border-radius: 90px;
 } */
+
+/* background: */
