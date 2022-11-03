@@ -129,6 +129,7 @@
 .bootstrap-select>.dropdown-toggle.bs-placeholder{
     border-radius: 10px;
     padding: 20px .75rem;
+    background-color: #FFFFFF;
 }
 
 .btn {
@@ -139,12 +140,23 @@
 .bootstrap-select>.dropdown-toggle{
     border-radius: 10px;
     padding: 20px .75rem;
+    background-color: #FFFFFF;
 }
 
 table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before, table.dataTable.dtr-inline.collapsed>tbody>tr>th.dtr-control:before {
     background-color: #007CFF !important;
 }
 
+input[type=text], input[type=password]{
+    width: 100%;
+    border-radius: 10px;
+    padding: 22px .75rem;
+    box-sizing: border-box;
+    border: 1px solid #007CFF;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
 /* .align {
     position: absolute;
     top: 50%;

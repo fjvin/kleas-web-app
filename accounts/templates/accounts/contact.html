@@ -4,10 +4,11 @@
 {% block content %}
 <br>
 
-<img src="{% static 'sales/drawable/kleas_logo.png' %}" alt="Klea's logo" width="130" height="130"
+<a class="navbar logo" href="{% url 'accounts:login' %}">
+    <img src="{% static 'sales/drawable/kleas_logo.png' %}" alt="Klea's logo" width="130" height="130"
     class="mt-5 mx-auto d-block rounded-circle" />
+</a>
 
-<br>
 <br>
 <div class="col text-center">
     <h2 class="h1 text-dark ms-3 m-4">Reset Password Form</h2>
