@@ -41,4 +41,7 @@ def logoutUser(request):
     logout(request)
     return redirect(reverse('accounts:login'))
 
+def contacts(request):
+    return render(request, 'accounts/contact.html')
+
 
