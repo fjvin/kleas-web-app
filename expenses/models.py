@@ -1,6 +1,6 @@
 from unicodedata import category
 from django.db import models
-from django.core.validators import MinValueValidator
+from django.core.validators import MinValueValidator, MaxValueValidator
 import sales
 
 # Create your models here.
@@ -20,8 +20,10 @@ class ExpensesRestock(models.Model):
 
 # expenses-store table
 class ExpensesStore(models.Model):
-    amount = models.DecimalField(max_digits=6, decimal_places=2, 
-                                validators=[MinValueValidator(limit_value=0.00)])
+    amount = models.DecimalField(max_digits=9, decimal_places=2, 
+                                validators=[
+                                    MinValueValidator(limit_value=0.00),
+                                    MaxValueValidator(limit_value=1000000.00)])
     date = models.DateField()
     category = models.CharField(max_length=20)
 

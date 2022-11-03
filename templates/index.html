@@ -82,7 +82,7 @@
     </header>
 
     <!-- Alerts -->
-    <div class="container">
+    <div class="container fixed-top">
         {% for msg in messages %}
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>{{ msg }}</strong>
@@ -90,7 +90,6 @@
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-
         <script>
             window.setTimeout(function () {
                 $(".alert").fadeTo(500, 0).slideUp(500, function () {
