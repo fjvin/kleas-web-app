@@ -26,14 +26,5 @@
     padding: 15px 0;
 }
 
-input[type=text], input[type=password]{
-    width: 100%;
-    border-radius: 10px;
-    padding: 22px .75rem;
-    box-sizing: border-box;
-    border: 1px solid #007CFF;
-    -webkit-transition: 0.5s;
-    transition: 0.5s;
-    outline: none;
-}
+
 
