@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def transactions_store(request):
-    store_expenses = ExpensesStore.objects.all()
+    store_expenses = ExpensesStore.objects.all().order_by('-date')
     context = {
         'store_expenses': store_expenses,
         }
@@ -16,7 +16,7 @@ def transactions_store(request):
 
 @login_required
 def transactions_restock(request):
-    restock_expenses = ExpensesRestock.objects.all()
+    restock_expenses = ExpensesRestock.objects.all().order_by('-purchase_date')
     context = {
         'restock_expenses': restock_expenses,
         }
