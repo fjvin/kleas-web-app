@@ -34,7 +34,7 @@
 }
 
 #cancel-btn {
-    background-color: #CDCDCD;
+    background-color: #6D6D6D;
     margin-right: 10px;
 }
 
@@ -168,3 +168,5 @@ input[type=text], input[type=password]{
     padding: 10% 0;
     border-radius: 90px;
 } */
+
+/* background: */
