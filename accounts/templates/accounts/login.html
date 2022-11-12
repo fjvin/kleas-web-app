@@ -1,7 +1,32 @@
 {% extends 'accounts/base.html' %}
+
 {% load static %}
 
 {% block content %}
+<style>
+  .alert {
+    padding: 20px;
+    background-color: rgba(206, 10, 10, 0.72);
+    color: white;
+    border-radius: 20px;
+  }
+
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .closebtn:hover {
+    color: black;
+  }
+</style>
+
 <br>
 <br>
 <img src="{% static 'sales/drawable/kleas_logo.png' %}" alt="Klea's logo" width="130" height="130"
@@ -37,8 +62,20 @@
       </div>
     </div>
   </div>
+
+  <!-- Alerts -->
+  <div class="container fixed-top">
+    {% for msg in messages %}
+    <div class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+      <strong>{{msg}}</strong>
+    </div>
+    {% endfor %}
   </div>
-  </div>
+  <!-- Alerts Ends Here -->
+
+
+
 </form>
 
 {% endblock %}
