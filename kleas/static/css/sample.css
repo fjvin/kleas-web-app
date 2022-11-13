@@ -1,0 +1,204 @@
+#price-num-input {
+    font-family: 'Inter', sans-serif;
+    text-align: right;
+    font-size: 50px;
+    border: none;
+    background-color:#007CFF;
+    color: #FFFFFF;
+    border-radius: 0.5rem;
+}
+
+#quantity-num-input {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    background: #FFFFFF;
+    border-radius: 0.5rem;
+    border: 1px #007CFF solid;
+    text-align: center;
+}
+
+.logo {
+    font-size: xx-large;
+    font-family: 'Inter', Arial;
+}
+
+.navbar_selection {
+    font-size: large;
+    text-align: end;
+    font-family: 'Inter', Arial;
+}
+
+#add-btn {
+    background-color: #6FBAF7;   
+    margin-left: 10px;
+}
+
+#cancel-btn {
+    background-color: #6D6D6D;
+    margin-right: 10px;
+}
+
+.button-custom {
+    border-radius: 10px;
+    width: 100% !important;
+    font-family: "Inter", Arial;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 15px 0;
+}
+
+.button-login {
+    border-radius: 10px;
+    width: 100% !important;
+    font-family: "Inter", Arial;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 10px 0;
+    margin-top: 50px;
+}
+
+.button-done-forgot {
+    border-radius: 10px;
+    width: 100% !important;
+    font-family: "Inter", Arial;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 10px 0;
+    margin-top: 50px;
+}
+
+.button-login-cancel {
+    border-radius: 10px;
+    width: 100% !important;
+    font-family: "Inter", Arial;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 10px 0;
+    margin-top: 10px;
+}
+
+
+/* .test-color{
+    background-color: red;
+} */
+
+
+/* .row.custom-gutters{
+    margin-left: 1px;
+    margin-right: 1px;
+} */
+
+.container-custom{
+    padding: 0 5px;
+}
+
+.nav-pills .nav-link{
+    font-family: "Inter", Arial;
+    padding: 10px 0;
+    border-radius: 10px;
+}
+
+.navbar .nav-link {
+    position: relative;
+    color: #f7f7f7;
+    text-decoration: none;
+    padding: 7px 0;
+}
+    
+.navbar .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0%;
+    height: 2px;
+    background: #007CFF;
+    transition: all 250ms ease-in-out;
+}
+  
+.navbar .nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+
+.bootstrap-select>.dropdown-toggle.bs-placeholder{
+    border-radius: 10px;
+    padding: 20px .75rem;
+    background-color: #FFFFFF;
+}
+
+.btn {
+    border-radius: 10px;
+}
+
+
+.bootstrap-select>.dropdown-toggle{
+    border-radius: 10px;
+    padding: 20px .75rem;
+    background-color: #FFFFFF;
+}
+
+table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before, table.dataTable.dtr-inline.collapsed>tbody>tr>th.dtr-control:before {
+    background-color: #007CFF !important;
+}
+
+input[type=text], input[type=password]{
+    width: 100%;
+    border-radius: 10px;
+    padding: 22px .75rem;
+    box-sizing: border-box;
+    border: 1px solid #007CFF;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+/* .align {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} */
+
+/* .btn-block {
+    padding: 10% 0;
+    border-radius: 90px;
+} */
+
+/* background: */
+
+/* Alert Login */
+ .alert {
+     padding: 20px;
+     background-color: rgba(206, 10, 10, 0.72);
+     color: white;
+     border-radius: 20px;
+ }
+
+ .closebtn {
+     margin-left: 15px;
+     color: white;
+     font-weight: bold;
+     float: right;
+     font-size: 22px;
+     line-height: 20px;
+     cursor: pointer;
+     transition: 0.3s;
+ }
+
+ .closebtn:hover {
+     color: black;
+ }
+
+ /* store.css */
+ #date {
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    background-color:white;
+    padding: 3px 5px;
+    height: 40px;
+    width: 100%;
+    color:#808080;
+  }
+
+  
