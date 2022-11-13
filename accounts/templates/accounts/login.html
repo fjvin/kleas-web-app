@@ -3,59 +3,60 @@
 {% load static %}
 
 {% block content %}
-<style>
+<div class="wrapper ">
+  <div class="box1">
 
-</style>
-
-<br>
-<br>
-<img src="{% static 'sales/drawable/kleas_logo.png' %}" alt="Klea's logo" width="130" height="130"
-  class="mt-5 mx-auto d-block rounded-circle" />
-
-<form method='POST' action=''>
-
-  {% csrf_token %}
-
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12 col-md-8 col-lg-8 col-xl-6">
-        <div class="row">
-          <div class="col text-center">
-            <h2 class="h1 text-dark ms-3 m-4">Welcome</h2>
-          </div>
-        </div>
-        <div class="row align-items-center">
-          <div class="col mt-4">
-            <label>Username</label>
-            <input type="text" class="form-control" name='username' placeholder="Username">
-          </div>
-        </div>
-        <div class="row align-items-center">
-          <div class="col mt-4">
-            <label>Password</label>
-            <input type="password" class="form-control" name='password' placeholder="Password">
-          </div>
-        </div>
-        <button class="btn btn-primary button-login">Login</button>
-        <button type="reset" class="btn btn btn-outline-secondary button-login-cancel">Cancel</button>
-        <p class="text-center mt-4"> <a href="{% url 'accounts:contacts' %}">Forgot Password?</a></p>
+    <img src="{% static 'sales/drawable/kleas_logo.png' %}" alt="Klea's logo" width="300" height="300"
+      class="mt-5 mx-auto d-block rounded-circle" />
+    <div class="row">
+      <div class="col text-center">
+        <h2 class="h1 text-dark ms-3 m-4">Welcome</h2>
       </div>
     </div>
+
   </div>
+  <div class="box2">
+    <div class="container">
+      <form method='POST' action=''>
 
-  <!-- Alerts -->
-  <div class="container fixed-top">
-    {% for msg in messages %}
-    <div class="alert">
-      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-      <strong>{{msg}}</strong>
-    </div>
-    {% endfor %}
-  </div>
-  <!-- Alerts Ends Here -->
+        {% csrf_token %}
+
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 ">
+              <div class="row align-items-center">
+                <div class="col mt-4">
+                  <label>Username</label>
+                  <input type="text" class="form-control" name='username' placeholder="Username">
+                </div>
+              </div>
+              <div class="row align-items-center">
+                <div class="col mt-4">
+                  <label>Password</label>
+                  <input type="password" class="form-control" name='password' placeholder="Password">
+                </div>
+              </div>
+              <button class="btn btn-primary button-login">Login</button>
+              <button type="reset" class="btn btn btn-outline-secondary button-login-cancel">Cancel</button>
+              <p class="text-center mt-4"> <a href="{% url 'accounts:contacts' %}">Forgot Password?</a></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Alerts -->
+        <div class="container fixed-top">
+          {% for msg in messages %}
+          <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <strong>{{msg}}</strong>
+          </div>
+          {% endfor %}
+        </div>
+        <!-- Alerts Ends Here -->
 
 
 
-</form>
+      </form>
 
-{% endblock %}
+
+      {% endblock %}
