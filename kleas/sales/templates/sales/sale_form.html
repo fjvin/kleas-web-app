@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<h2 class="text-dark ms-3 mt-5 m-4">Add Sales</h2>
+
+<!-- Sale Transaction Form -->
+<form method="post" id="saleForm" data-items-url="{% url 'sales:ajax_load_items' %}">
+  {% csrf_token %}
+
+  {{form.as_p}}
+
+  <!-- Cancel and Save Button -->
+  <div class="form-group m-4 pb-5">
+    <div class="row no-gutters">
+      <div class="col-6 d-flex justify-content-center">
+        <button type="reset" class="btn btn-secondary btn-lg border-0 button-custom " id="cancel-btn">Cancel</button>
+      </div>
+      <div class="col-6 d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary btn-lg border-0 button-custom " id="save-btn"
+          onClick="check();">Save</button>
+      </div>
+    </div>
+  </div>
+</form>
+
+<!-- chained dropdown dependencies -->
+<script src="{% static 'sales/js/jquery-3.3.1.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'sales/js/category-item-chained-dropdown.js' %}" type="text/javascript"></script>
+
+<!-- formatting the currency input and value -->
+<script src="{% static 'sales/js/format-currency-input.js' %}" type="text/javascript"></script>
+<script src="{% static 'sales/js/format-currency-value.js' %}" type="text/javascript"></script>
+
+<!-- reset values in dropdown -->
+<script src="{% static 'sales/js/selectpicker-reset.js' %}" type="text/javascript"></script>
+
+{% endblock content %}
