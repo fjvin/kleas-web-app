@@ -1,0 +1,38 @@
+<header class="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow fixed-top">
+
+        <a class="navbar-brand mr-auto logo" href="#">
+            <img src="{% static 'img/kleas_logo.png' %}" alt="Klea's logo" width="50" height="50"
+                class="d-inline-block align-top rounded" />
+            Klea</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportContent"
+            aria-controls="#navbarSupportContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportContent">
+            <ul class="navbar-nav ml-auto text-right navbar_selection">
+
+                <!-- hello message to user -->
+                <li class="nav-item">
+                    <span class="nav-link active">Hello, {{request.user}}</span>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sales</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Expenses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Transactions</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Analytics</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
