@@ -1,5 +1,5 @@
 from django.db import models
-from django.core.validators import MinValueValidator, DecimalValidator
+from django.core.validators import MinValueValidator, DecimalValidator, MaxValueValidator
 
 # clothes category table
 class Category(models.Model):
@@ -25,6 +25,7 @@ class Sale(models.Model):
                                 decimal_places=2, 
                                 validators=[
                                     MinValueValidator(limit_value=1.00),
+                                    MaxValueValidator(limit_value=1000000.00),
                                     DecimalValidator(max_digits=9, decimal_places=2)])
 
     quantity = models.IntegerField(validators=[MinValueValidator(limit_value=1)])

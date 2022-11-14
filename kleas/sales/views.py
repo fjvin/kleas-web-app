@@ -3,6 +3,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy, reverse
+from django.contrib import messages
 
 from . models import Sale, Item
 from . forms import SaleForm
@@ -26,12 +27,14 @@ class SaleUpdateView(UpdateView):
     model = Sale
     template_name = 'sales/edit_sale_form.html'
     form_class = SaleForm
+    success_message = "Sale transaction updated!"
     success_url = reverse_lazy('sales:transactions')
 
 
 def delete_sale(request, pk):
     sale = get_object_or_404(Sale, id=pk)
     sale.delete()
+    messages.success(request, 'Sale transaction deleted!')
     return redirect(reverse('sales:transactions'))
 
 def load_items(request):
