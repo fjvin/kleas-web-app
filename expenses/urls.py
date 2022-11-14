@@ -14,6 +14,12 @@ urlpatterns = [
     # expenses/transactions/store
     path('transactions/store', views.transactions_store, name='transactions_store'),
 
+    # expenses/edit_restock/transactions/
+    path('edit_restock/transactions/', views.transactions_restock, name='transactions_restock'),
+
+    # expenses/edit_store/transactions/
+    path('edit_store/transactions/', views.transactions_store, name='transactions_store'),
+
     # expenses/edit_restock/<primary-key of restock expense to be edit>
     path('edit_restock/<int:pk>', views.edit_restock, name='edit_restock'),
     # expenses/edit/update/<primary-key of restock to be update>
