@@ -168,7 +168,7 @@ input[type=text], input[type=password]{
 /* background: */
 
 /* Alert Login */
- .alert {
+ .alertsError {
      padding: 20px;
      background-color: rgba(206, 10, 10, 0.72);
      color: white;

@@ -1,4 +1,5 @@
 from django.views.generic import CreateView, ListView, UpdateView
+from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy, reverse
@@ -8,10 +9,11 @@ from . forms import SaleForm
 
 # Create your views here.
 
-class SaleCreateView(CreateView):
+class SaleCreateView(SuccessMessageMixin, CreateView):
     model = Sale
     form_class = SaleForm
     template_name = 'sales/sale_form.html'
+    success_message = "Sale transaction saved!"
     success_url = reverse_lazy('sales:add')
 
 class SaleListView(ListView):
@@ -26,11 +28,6 @@ class SaleUpdateView(UpdateView):
     form_class = SaleForm
     success_url = reverse_lazy('sales:transactions')
 
-# class SaleDeleteView(DeleteView):
-#     model = Sale
-
-#     def get_success_url(self):
-#         return reverse('sales:transactions')
 
 def delete_sale(request, pk):
     sale = get_object_or_404(Sale, id=pk)
