@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     # project apps
     'sales.apps.SalesConfig',
+    'expenses.apps.ExpensesConfig',
 ]
 
 MIDDLEWARE = [
