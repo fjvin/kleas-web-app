@@ -94,6 +94,7 @@
 
 .container-custom{
     padding: 0 5px;
+
 }
 
 .nav-pills .nav-link{
@@ -172,7 +173,7 @@ input[type=text], input[type=password]{
 /* background: */
 
 /* Alert Login */
- .alert {
+ .login-alert {
      padding: 20px;
      background-color: rgba(206, 10, 10, 0.72);
      color: white;
@@ -192,4 +193,63 @@ input[type=text], input[type=password]{
 
  .closebtn:hover {
      color: black;
+ }
+
+
+
+ .login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+ }
+
+ .box1 {
+     width: 50%;
+     height: 100%;
+     /* background: red; */
+     float: left;
+
+ }
+
+ .box2 {
+     width: 50%;
+     height: 100%;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.271);
+     border-radius: 20px;
+     float: right;
+    
+ }
+
+ .wrapper {
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin-top: 5rem;
+     
+ }
+
+ @media screen and (max-width:820px) {
+    
+    
+     .wrapper {
+        margin-top: 0px;
+         display: flex;
+         flex-direction: column;
+     }
+
+     .box1 {
+         width: 100%;
+         float: right;
+         
+     }
+
+     .box2 {
+         width: 100%;
+         float: right;
+        box-shadow: none;
+     }
+  
  }
