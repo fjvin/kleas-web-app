@@ -20,6 +20,7 @@ from django.views.generic import RedirectView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('sales/', include('sales.urls')),
+    path('expenses/', include('expenses.urls')),
     
     # home page (leads to add sales)
     path('', RedirectView.as_view(url='sales')),
