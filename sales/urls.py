@@ -15,6 +15,10 @@ urlpatterns = [
     # /sales/edit_sale/update <primary-key of sale to be updated>
     path('edit_sale/update/<int:pk>', views.update, name='update_sale'),
 
+    # /sales/edit_sale/transactions/
+    path('edit_sale/transactions/', views.SaleTransactions.as_view(), name='transactions'),
+    
+
     # endpoint where ajax updates clothes items based on category
     path('ajax/load-items/', views.load_items, name='ajax_load_items'),
 ]
