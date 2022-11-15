@@ -240,10 +240,15 @@ input[type=text], input[type=password]{
          flex-direction: column;
      }
 
+     #login-logo{
+        max-width: 200px;
+        max-height: 200px;
+     }
+
      .box1 {
          width: 100%;
          float: right;
-         
+
      }
 
      .box2 {
@@ -251,5 +256,7 @@ input[type=text], input[type=password]{
          float: right;
         box-shadow: none;
      }
+
+
   
  }
