@@ -22,6 +22,7 @@ urlpatterns = [
     path('sales/', include('sales.urls')),
     path('expenses/', include('expenses.urls')),
     path('accounts/', include('accounts.urls')),
+    path('dashboard/', include('dashboard.urls')),
     
     # home page (leads to add sales)
     path('', RedirectView.as_view(url='sales')),
