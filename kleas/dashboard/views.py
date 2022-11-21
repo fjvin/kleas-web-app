@@ -1,32 +1,59 @@
-from django.shortcuts import render
-from sales.models import Sale
-
 from django_pandas.io import read_frame
+from django.shortcuts import render
+from expenses.models import ExpensesRestock, ExpensesStore
+from sales.models import Sale
 import plotly.express as px
 import pandas as pd
+import warnings
 import plotly
 import json
 
-import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
-
-# Create your views here.
 
 def dashboard(request):
     
     sales = Sale.objects.all()
-    df = read_frame(sales)
-    df.purchase_date = pd.to_datetime(df['purchase_date'],format='%m/%d/%y %I:%M%p')
-    
-    sales_graph = get_sales_trend_graph(df)
-    category_item_graph = get_category_item_breakdown_graph(df)
+    restock_expenses = ExpensesRestock.objects.all()
+    store_expenses = ExpensesStore.objects.all()
 
+    sales_df = read_frame(sales)
+    sales_df.purchase_date = pd.to_datetime(
+        sales_df['purchase_date'],format='%m/%d/%y %I:%M%p')
+
+    restock_expenses_df = read_frame(restock_expenses)
+    store_expenses_df = read_frame(store_expenses)
+
+    revenue = get_revenue(sales_df)
+    total_sales = get_total_sales(sales_df)
+    total_expenses = get_total_expenses(restock_expenses_df,
+                                        store_expenses_df)
+
+    sales_graph = get_sales_trend_graph(sales_df)
+    category_item_graph = get_category_item_breakdown_graph(sales_df)
 
     context = {
+        'total_sales': total_sales,
+        'total_expenses': total_expenses,
+        'revenue': revenue,
         'sales_graph' : sales_graph,
         'category_item_graph': category_item_graph,
     }
     return render(request, 'dashboard/dashboard.html', context=context)
+
+def get_revenue(df):
+    df['total_price'] = df['price'] * df['quantity']
+    revenue = float(df['total_price'].sum())
+    return revenue
+
+def get_total_sales(df):
+    total_sales = int(df['quantity'].sum())
+    return total_sales
+
+def get_total_expenses(restock, store):
+    total_expenses = int(restock['quantity'].sum())
+    total_expenses += store.shape[0]
+    return total_expenses
+
 
 
 def get_sales_trend_graph(df):
@@ -53,5 +80,5 @@ def get_sales_trend_graph(df):
 def get_category_item_breakdown_graph(df):
     fig = px.sunburst(df, path=['category', 'item'], 
                       values='quantity', 
-                      title='Sales by Category and Item Breakdown')
+                      title='Sales by Category and Item')
     return json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
