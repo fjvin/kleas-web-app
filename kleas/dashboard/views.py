@@ -1,6 +1,7 @@
 from django_pandas.io import read_frame
 from django.shortcuts import render
 from expenses.models import ExpensesRestock, ExpensesStore
+from django.contrib.auth.decorators import login_required
 from sales.models import Sale
 import plotly.express as px
 import pandas as pd
@@ -10,6 +11,7 @@ import json
 
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
+@login_required
 def dashboard(request):
     
     sales = Sale.objects.all()
@@ -53,7 +55,6 @@ def get_total_expenses(restock, store):
     total_expenses = int(restock['quantity'].sum())
     total_expenses += store.shape[0]
     return total_expenses
-
 
 
 def get_sales_trend_graph(df):

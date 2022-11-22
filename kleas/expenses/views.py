@@ -1,7 +1,9 @@
 from django.views.generic import CreateView, ListView, UpdateView
 from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django.urls import reverse_lazy, reverse
 from django.contrib import messages
 
@@ -9,26 +11,27 @@ from . models import ExpensesRestock, ExpensesStore
 from . forms import ExpensesRestockForm, ExpensesStoreForm
 
 # Expenses Restock Views
-class ExpensesRestockCreateView(SuccessMessageMixin, CreateView):
+class ExpensesRestockCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     model = ExpensesRestock
     form_class = ExpensesRestockForm
     template_name = 'expenses/expenses_restock/restock_form.html'
     success_message = "Expense transaction saved!"
     success_url = reverse_lazy('expenses:restock')
 
-class ExpensesRestockListView(ListView):
+class ExpensesRestockListView(LoginRequiredMixin, ListView):
     model = ExpensesRestock
     queryset = ExpensesRestock.objects.order_by('-purchase_date')
     template_name = 'expenses/expenses_restock/transactions.html'
     context_object_name = 'expenses'
 
-class ExpensesRestockUpdateView(SuccessMessageMixin, UpdateView):
+class ExpensesRestockUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     model = ExpensesRestock
     template_name = 'expenses/expenses_restock/edit_restock_form.html'
     form_class = ExpensesRestockForm
     success_message = "Expense transaction updated!"
     success_url = reverse_lazy('expenses:restock_transactions')
 
+@login_required
 def delete_restock(request, pk):
     expense = get_object_or_404(ExpensesRestock, id=pk)
     expense.delete()
@@ -38,26 +41,27 @@ def delete_restock(request, pk):
 ##################################################################
 
 # Expenses Store Views
-class ExpensesStoreCreateView(SuccessMessageMixin, CreateView):
+class ExpensesStoreCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     model = ExpensesStore
     form_class = ExpensesStoreForm
     template_name = 'expenses/expenses_store/store_form.html'
     success_message = "Expense transaction saved!"
     success_url = reverse_lazy('expenses:store')
 
-class ExpensesStoreListView(ListView):
+class ExpensesStoreListView(LoginRequiredMixin, ListView):
     model = ExpensesStore
     queryset = ExpensesStore.objects.order_by('-date')
     template_name = 'expenses/expenses_store/transactions.html'
     context_object_name = 'expenses'
 
-class ExpensesStoreUpdateView(SuccessMessageMixin, UpdateView):
+class ExpensesStoreUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     model = ExpensesStore
     template_name = 'expenses/expenses_store/edit_store_form.html'
     form_class = ExpensesStoreForm
     success_message = "Expense transaction updated!"
     success_url = reverse_lazy('expenses:store_transactions')
 
+@login_required
 def delete_store(request, pk):
     expense = get_object_or_404(ExpensesStore, id=pk)
     expense.delete()
