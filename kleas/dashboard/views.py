@@ -25,18 +25,26 @@ def dashboard(request):
     restock_expenses_df = read_frame(restock_expenses)
     store_expenses_df = read_frame(store_expenses)
 
+    # compute for gross income
     revenue = get_revenue(sales_df)
+    total_expenses = get_expenses(restock_expenses_df, store_expenses_df)
+    gross_income = compute_gross_income(revenue, total_expenses)
+
+    # aggregate total number of sales and expenses
     total_sales = get_total_sales(sales_df)
-    total_expenses = get_total_expenses(restock_expenses_df,
-                                        store_expenses_df)
+    total_num_expenses = get_total_num_expenses(restock_expenses_df, store_expenses_df)
+
 
     sales_graph = get_sales_trend_graph(sales_df)
     category_item_graph = get_category_item_breakdown_graph(sales_df)
 
     context = {
-        'total_sales': total_sales,
-        'total_expenses': total_expenses,
         'revenue': revenue,
+        'gross_income': gross_income,
+
+        'total_sales': total_sales,
+        'total_num_expenses': total_num_expenses,
+
         'sales_graph' : sales_graph,
         'category_item_graph': category_item_graph,
     }
@@ -47,11 +55,30 @@ def get_revenue(df):
     revenue = float(df['total_price'].sum())
     return revenue
 
+def get_expenses(restock, store):
+
+    # compute expenses on restock
+    restock['total_price'] = restock['price'] * restock['quantity']
+    restock_expenses = float(restock['total_price'].sum())
+
+    # compute expenses on store
+    store_expenses = float(store['amount'].sum())
+
+    # return total expenses
+    return float(restock_expenses + store_expenses)
+
+
+def compute_gross_income(revenue, expenses):
+    gross_income = revenue - expenses
+    return gross_income
+
+
 def get_total_sales(df):
     total_sales = int(df['quantity'].sum())
     return total_sales
 
-def get_total_expenses(restock, store):
+
+def get_total_num_expenses(restock, store):
     total_expenses = int(restock['quantity'].sum())
     total_expenses += store.shape[0]
     return total_expenses
