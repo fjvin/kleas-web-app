@@ -63,7 +63,7 @@ def get_sales_trend_graph(df):
         'purchase_date','category','quantity')
     sales_df = sales_df.groupby(pd.Grouper(freq='D')).sum().reset_index()
     
-    fig = px.line(sales_df, 
+    fig = px.bar(sales_df, 
                 x='purchase_date',
                 y=sales_df.columns,
                 labels={
@@ -71,21 +71,9 @@ def get_sales_trend_graph(df):
                     "purchase_date": "Date",
                     "category": "Clothes Category"
                     }, 
-                title='Sales Trend')
-                
-    fig.update_xaxes(
-        rangeslider_visible=True,
-        rangeselector=dict(
-            buttons=list([
-                dict(count=1, label="1m", step="month", stepmode="backward"),
-                dict(count=6, label="6m", step="month", stepmode="backward"),
-                dict(count=1, label="YTD", step="year", stepmode="todate"),
-                dict(count=1, label="1y", step="year", stepmode="backward"),
-                dict(step="all")
-            ])
-        )
-    )
-    
+                title='Sales Trend',
+                barmode='group')
+    fig.update_xaxes(rangeslider_visible=True)
 
     return json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
 
