@@ -63,7 +63,7 @@ def get_sales_trend_graph(df):
         'purchase_date','category','quantity')
     sales_df = sales_df.groupby(pd.Grouper(freq='D')).sum().reset_index()
     
-    fig = px.line(sales_df, 
+    fig = px.bar(sales_df, 
                 x='purchase_date',
                 y=sales_df.columns,
                 labels={
@@ -71,7 +71,8 @@ def get_sales_trend_graph(df):
                     "purchase_date": "Date",
                     "category": "Clothes Category"
                     }, 
-                title='Sales Trend')
+                title='Sales Trend',
+                barmode='group')
     fig.update_xaxes(rangeslider_visible=True)
     
 
