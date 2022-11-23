@@ -8,18 +8,8 @@
         <div id="revenue">
             <div class="card card-blue">
                 <div class="card-body">
-                  <h5 class="card-title text-center">Revenue</h5>
+                  <h5 class="card-title text-center">Total Revenue</h5>
                   <p class="card-text text-center">₱ {{ revenue }}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm mt-1 mb-1">
-        <div id="sales">
-            <div class="card card-blue">
-                <div class="card-body">
-                  <h5 class="card-title text-center">Total Sales</h5>
-                  <p class="card-text text-center">{{ total_sales }}</p>
                 </div>
             </div>
         </div>
@@ -29,19 +19,39 @@
             <div class="card card-blue">
                 <div class="card-body">
                   <h5 class="card-title text-center">Total Expenses</h5>
-                  <p class="card-text text-center">{{ total_num_expenses }}</p>
+                  <p class="card-text text-center">₱ {{ total_expenses }}</p>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="row">
     <div class="col-sm">
         <div id="gross_income">
             <div class="card card-blue">
                 <div class="card-body">
                     <h5 class="card-title text-center">Gross Income</h5>
                     <p class="card-text text-center">₱ {{ gross_income }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row m-5">
+    <div class="col-sm mt-1 mb-1">
+        <div id="num-sales">
+            <div class="card card-blue">
+                <div class="card-body">
+                  <h5 class="card-title text-center">Total # Sales</h5>
+                  <p class="card-text text-center">{{ total_num_sales }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm mt-1 mb-1">
+        <div id="num-expenses">
+            <div class="card card-blue">
+                <div class="card-body">
+                  <h5 class="card-title text-center">Total # Expenses</h5>
+                  <p class="card-text text-center">{{ total_num_expenses }}</p>
                 </div>
             </div>
         </div>

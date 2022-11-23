@@ -31,7 +31,7 @@ def dashboard(request):
     gross_income = compute_gross_income(revenue, total_expenses)
 
     # aggregate total number of sales and expenses
-    total_sales = get_total_sales(sales_df)
+    total_num_sales = get_total_sales(sales_df)
     total_num_expenses = get_total_num_expenses(restock_expenses_df, store_expenses_df)
 
 
@@ -40,9 +40,10 @@ def dashboard(request):
 
     context = {
         'revenue': revenue,
+        'total_expenses': total_expenses,
         'gross_income': gross_income,
 
-        'total_sales': total_sales,
+        'total_num_sales': total_num_sales,
         'total_num_expenses': total_num_expenses,
 
         'sales_graph' : sales_graph,
