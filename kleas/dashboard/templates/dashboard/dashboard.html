@@ -59,26 +59,38 @@
 </div>
 <div class="row">
     <div class="col-sm">
-        <!--Sales Trend Graph-->
+        <!--Revenue Trend Graph-->
         <div id="chart1"></div>         
+    </div>
+    <div class="col-sm">
+        <!--Expenses Trend Graph-->
+        <div id="chart2"></div>         
     </div>
 </div>
 <div class="row">
     <div class="col-sm">
+        <!--Sales Trend Graph-->
+        <div id="chart3"></div>         
+    </div>
+    <div class="col-sm">
         <!--Sales by Category and Item-->
-        <div id="chart2"></div>  
+        <div id="chart4"></div>  
     </div>
 </div>
 
 <script src="{% static 'js/jquery-3.3.1.min.js' %}" type="text/javascript"></script>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script type="text/javascript">
-    var graph1 = {{ sales_graph|safe }};
-    var graph2 = {{ category_item_graph|safe }};
+    var graph1 = {{ revenue_trend_graph|safe }};
+    var graph2 = {{ expenses_trend_graph|safe }};
+    var graph3 = {{ sales_trend_graph|safe }};
+    var graph4 = {{ category_item_graph|safe }};
     var config = {responsive: true};
 
     Plotly.newPlot("chart1", graph1, {}, config);
     Plotly.newPlot("chart2", graph2, {}, config);
+    Plotly.newPlot("chart3", graph3, {}, config);
+    Plotly.newPlot("chart4", graph4, {}, config);
 
     function resP(id){
         var d3 = Plotly.d3;
@@ -100,6 +112,12 @@
        window.addEventListener('resize', function(){
         Plotly.Plots.resize( resP('chart2') );
        })
-    
+
+       window.addEventListener('resize', function(){
+        Plotly.Plots.resize( resP('chart3') );
+       })
+       window.addEventListener('resize', function(){
+        Plotly.Plots.resize( resP('chart4') );
+       })
 </script>
 {% endblock content %}
