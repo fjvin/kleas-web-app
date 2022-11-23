@@ -227,6 +227,17 @@ input[type=text], input[type=password]{
      
  }
 
+
+ .card-blue {
+     color: #FFFFFF;
+     background-color: #007CFF !important;
+     border-radius: 10px;
+ }
+
+
+
+
+
  @media screen and (max-width:820px) {
     
     
@@ -254,7 +265,3 @@ input[type=text], input[type=password]{
      }
  }
 
- .card-blue {
-    color: #FFFFFF;
-    background-color: #007CFF!important;
- }
