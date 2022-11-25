@@ -1,5 +1,5 @@
 from django import forms
-from .models import Sale
+from .models import Sale, Item
 
 class SaleForm(forms.ModelForm):
     class Meta:
@@ -59,3 +59,29 @@ class SaleForm(forms.ModelForm):
                 },
             ),
         }
+
+    def __init__(self, *args, **kwargs):
+
+        # remove the ":" suffix in field names
+        kwargs["label_suffix"] = ""
+
+        super().__init__(*args, **kwargs)
+        self.fields['item'].queryset = Item.objects.none()
+
+        # remove the default "-------" in select fields
+        payment_choices = list(self.fields["payment"].choices)[1:]
+        category_choices = list(self.fields["category"].choices)[1:]
+        item_choices = list(self.fields["item"].choices)[1:]
+
+        self.fields["payment"].choices = payment_choices
+        self.fields["category"].choices = category_choices
+        self.fields["item"].choices = item_choices
+
+        if 'category' in self.data:
+            try:
+                category_id = int(self.data.get('category'))  # type: ignore
+                self.fields['item'].queryset = Item.objects.filter(category_id=category_id).order_by('item')
+            except (ValueError, TypeError):
+                pass  # invalid input from the client; ignore and fallback to empty items queryset
+        elif self.instance.pk:
+            self.fields['item'].queryset = self.instance.category.item_set.order_by('item')
