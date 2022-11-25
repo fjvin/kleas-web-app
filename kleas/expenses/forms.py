@@ -127,3 +127,12 @@ class ExpensesStoreForm(forms.ModelForm):
                 },
             ),
         }
+
+    def __init__(self, *args, **kwargs):
+
+        # remove the ":" suffix in field names
+        kwargs["label_suffix"] = ""
+        super().__init__(*args, **kwargs)
+        # remove the default "-------" in select fields
+        category_choices = list(self.fields["category"].choices)[1:]
+        self.fields["category"].choices = category_choices
