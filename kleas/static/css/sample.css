@@ -269,9 +269,9 @@ input[type=text], input[type=password]{
     color:#808080;
   }
 
-/*
-test
-*/
+.form-control{
+    background-color:rgba(0,0,0,0);
+}
   
 /*
 .filter-option-inner-inner{
