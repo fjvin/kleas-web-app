@@ -303,7 +303,7 @@ p#wayhome{
 
 .buttonhome404{
     margin-top: 50px;
-    padding: 0 30%;
+    padding: 0 35%;
 }
 
 
@@ -422,6 +422,10 @@ p#wayhome{
      p#wayhome {
          font-size: 15px;
      }
+    .buttonhome404 {
+        margin-top: 50px;
+        padding: 0 10%;
+    }
 
     
 
