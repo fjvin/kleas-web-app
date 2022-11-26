@@ -124,7 +124,7 @@
 
 
 .bootstrap-select>.dropdown-toggle.bs-placeholder{
-    border-radius: 10px;
+    border-radius: 6px;
     padding: 20px .75rem;
     background-color: #FFFFFF;
 }
@@ -135,7 +135,7 @@
 
 
 .bootstrap-select>.dropdown-toggle{
-    border-radius: 10px;
+    border-radius: 6px;
     padding: 20px .75rem;
     background-color: #FFFFFF;
 }
