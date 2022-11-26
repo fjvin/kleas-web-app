@@ -227,6 +227,69 @@ input[type=text], input[type=password]{
      
  }
 
+
+ .card-blue {
+     color: #FFFFFF;
+     background-color: #007CFF !important;
+     border-radius: 10px;
+ }
+
+/* 404 CSS */
+.titleoops {
+    margin-top: 5rem;
+}
+p.oops{
+    font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 50px;
+        /* line-height: 73px; */
+        text-align: center;
+        margin-bottom: 0;
+    
+        color: #FFFFFF;
+}
+p.something {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 35px;
+    /* line-height: 42px; */
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 0;
+}
+
+
+p#number404{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 150px;
+    /* line-height: 243px; */
+    /* identical to box height */
+    text-align: center;
+    color: #FFFFFF;
+    text-shadow: 0px 16.4809px 16.4809px rgba(0, 0, 0, 0.25);
+    margin-bottom: 0;
+    margin-top: 50px;
+}
+
+
+p#notfound{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 52.5625px;
+    /* line-height: 60px; */
+    /* identical to box height */        
+    text-align: center;
+    color: #FFFFFF;
+    text-shadow: 0px 10.5125px 10.5125px rgba(0, 0, 0, 0.25);
+    margin-bottom: 0;
+    }
+
+
  @media screen and (max-width:820px) {
     
     
@@ -252,9 +315,31 @@ input[type=text], input[type=password]{
          float: right;
         box-shadow: none;
      }
+
+     /* 404 CSS Mobile */
+    .titleoops {
+        margin-top: 5rem;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    p.oops{
+        font-size: 35px;
+    }
+    p.something{
+        font-size: 20px;
+    }
+    .title404{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    p#number404 {
+        font-size: 90px;
+    }
+
+    p#notfound {
+        font-size: 20px;
+    }
+
  }
 
- .card-blue {
-    color: #FFFFFF;
-    background-color: #007CFF!important;
- }
