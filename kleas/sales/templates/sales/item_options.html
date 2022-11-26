@@ -1,5 +1,7 @@
 <!--load item dropwdown options dynamically 
     based on clothes category-->
+
 {% for item in items %}
     <option value="{{ item.pk }}">{{ item.item }}</option>
 {% endfor %}
+

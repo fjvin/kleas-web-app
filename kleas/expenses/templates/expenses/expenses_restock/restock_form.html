@@ -14,7 +14,7 @@
 </div>
 
 <!-- Sale Transaction Form -->
-<form method="post" id="saleForm" data-items-url="{% url 'sales:ajax_load_items' %}">
+<form method="post" id="saleForm" data-items-url="{% url 'sales:ajax_load_items' %}" novalidate>
   {% csrf_token %}
 
   <!--Display form fields-->
