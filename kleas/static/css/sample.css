@@ -124,7 +124,7 @@
 
 
 .bootstrap-select>.dropdown-toggle.bs-placeholder{
-    border-radius: 10px;
+    border-radius: 6px;
     padding: 20px .75rem;
     background-color: #FFFFFF;
 }
@@ -135,7 +135,7 @@
 
 
 .bootstrap-select>.dropdown-toggle{
-    border-radius: 10px;
+    border-radius: 6px;
     padding: 20px .75rem;
     background-color: #FFFFFF;
 }
@@ -258,3 +258,32 @@ input[type=text], input[type=password]{
     color: #FFFFFF;
     background-color: #007CFF!important;
  }
+
+ #date {
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    background-color:white;
+    padding: 3px 5px;
+    height: 40px;
+    width: 100%;
+    color:#808080;
+  }
+/*
+.filter-option-inner-inner{
+    visibility: hidden;
+    position: relative;
+}
+
+[data-id="payment-dropdown"]:before {
+    content: "Select Payment";
+}
+
+[data-id="category-dropdown"]:before {
+    content: "Select Category";
+}
+
+[data-id="item-dropdown"]:before {
+    content: "Select Item";
+}*/
+
+
