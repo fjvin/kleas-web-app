@@ -45,9 +45,11 @@ def dashboard(request):
     # generate graphs
     sales_trend_graph = get_sales_trend_graph(sales_df)
     category_item_graph = get_category_item_breakdown_graph(sales_df)
-    revenue_trend_graph = get_revenue_trend_graph(sales_df)
+    revenue_trend_graph = get_revenue_trend_graph(sales_df) if sales else None
+    
 
-    expenses_trend_graph = get_expenses_trend_graph(restock_expenses_df, store_expenses_df)
+    expenses_trend_graph = get_expenses_trend_graph(restock_expenses_df, 
+                    store_expenses_df) if (restock_expenses and store_expenses) else None
 
     context = {
         'revenue': revenue,
@@ -152,18 +154,19 @@ def get_expenses_trend_graph(restock, store):
 
     merge_data = pd.merge(restock_expenses_per_month, 
                           store_expenses_per_month, 
-                          how='outer',left_on='purchase_date',
+                          how='outer',
+                          left_on='purchase_date',
                           right_on='date')
-    
-    merge_data['total_amount'] = merge_data['total_price'] + merge_data['amount']
-    merge_data = merge_data[['date', 'total_amount']]
+    merge_data.rename(columns={'amount': 'store', 'total_price': 'restock'}, 
+                    inplace=True)
+    merge_data.drop(columns=['purchase_date'], inplace=True)
 
     fig = px.bar(merge_data, 
                 x='date',
-                y='total_amount',
+                y=merge_data.columns,
                 labels={
                     "date": "Date",
-                    "total_amount": "Total Expenses (₱)"
+                    "value": "Total Expenses (₱)"
                     }, 
                 title='Expenses Trend',
                 barmode='group')
@@ -174,12 +177,12 @@ def get_expenses_trend_graph(restock, store):
 def get_sales_trend_graph(df):
 
     # generate total # of sales per category
-
     sales_df = df[['purchase_date', 'category', 'quantity']]
     sales_df = df.assign(key=df.groupby('category').cumcount()).pivot(
-        'purchase_date','category','quantity')
+            'purchase_date','category','quantity')
+
     sales_df = sales_df.groupby(pd.Grouper(freq='D')).sum().reset_index()
-    
+        
     fig = px.bar(sales_df, 
                 x='purchase_date',
                 y=sales_df.columns,
@@ -192,8 +195,9 @@ def get_sales_trend_graph(df):
                 barmode='group')
     fig.update_xaxes(rangeslider_visible=True)
 
-    return json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
 
+    return json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    
 
 def get_category_item_breakdown_graph(df):
 
