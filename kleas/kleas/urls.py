@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import RedirectView
+from django.conf.urls import handler404
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,6 +25,9 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('dashboard/', include('dashboard.urls')),
     
+    
     # home page (leads to add sales)
     path('', RedirectView.as_view(url='sales')),
+    path('', include('error404.urls')),
 ]
+handler404 = 'error404.views.error_404_view'
