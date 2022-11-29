@@ -124,7 +124,7 @@
 
 
 .bootstrap-select>.dropdown-toggle.bs-placeholder{
-    border-radius: 10px;
+    border-radius: 6px;
     padding: 20px .75rem;
     background-color: #FFFFFF;
 }
@@ -135,7 +135,7 @@
 
 
 .bootstrap-select>.dropdown-toggle{
-    border-radius: 10px;
+    border-radius: 6px;
     padding: 20px .75rem;
     background-color: #FFFFFF;
 }
@@ -227,18 +227,156 @@ input[type=text], input[type=password]{
      
  }
 
+
+ .card-blue {
+     color: #FFFFFF;
+     background-color: #007CFF !important;
+     border-radius: 10px;
+ }
+
+/* 404 CSS */
+.titleoops {
+    margin-top: 5rem;
+}
+p.oops{
+    font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 50px;
+        /* line-height: 73px; */
+        text-align: center;
+        margin-bottom: 0;
+    
+        color: #FFFFFF;
+}
+p.something {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 35px;
+    /* line-height: 42px; */
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 0;
+}
+
+
+p#number404{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 150px;
+    /* line-height: 243px; */
+    /* identical to box height */
+    text-align: center;
+    color: #FFFFFF;
+    text-shadow: 0px 16.4809px 16.4809px rgba(0, 0, 0, 0.25);
+    margin-bottom: 0;
+    margin-top: 30px;
+}
+
+
+p#notfound{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 52.5625px;
+    /* line-height: 60px; */
+    /* identical to box height */        
+    text-align: center;
+    color: #FFFFFF;
+    text-shadow: 0px 10.5125px 10.5125px rgba(0, 0, 0, 0.25);
+    margin-bottom: 0;
+    }
+
+p#wayhome{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    /* line-height: 42px; */
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.buttonhome404{
+    margin-top: 50px;
+    padding: 0 35%;
+}
+
+
+
+
+#btn-home-404{
+    justify-content: flex-end;
+    background-color: #FFFFFF;
+    color: #002CB8;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 30px;
+    text-align: center;
+
+}
+
+
+
+ .card-blue {
+    color: #FFFFFF;
+    background-color: #007CFF!important;
+ }
+
+ #date {
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    background-color:white;
+    padding: 3px 5px;
+    height: 40px;
+    width: 100%;
+    color:#808080;
+  }
+/*
+.filter-option-inner-inner{
+    visibility: hidden;
+    position: relative;
+}
+
+[data-id="payment-dropdown"]:before {
+    content: "Select Payment";
+}
+
+[data-id="category-dropdown"]:before {
+    content: "Select Category";
+}
+
+[data-id="item-dropdown"]:before {
+    content: "Select Item";
+}*/
+
+
+ /* @media screen and (max-width:1050px) {
+     .buttonhome404 {
+         padding: 0 20rem;
+
+     }
+
+ } */
+
  @media screen and (max-width:820px) {
-    
-    
+
+
      .wrapper {
-        margin-top: 0px;
+         margin-top: 0px;
          display: flex;
          flex-direction: column;
      }
 
-     #login-logo{
-        max-width: 200px;
-        max-height: 200px;
+     #login-logo {
+         max-width: 200px;
+         max-height: 200px;
      }
 
      .box1 {
@@ -250,10 +388,50 @@ input[type=text], input[type=password]{
      .box2 {
          width: 100%;
          float: right;
-        box-shadow: none;
+         box-shadow: none;
      }
- }
 
+     /* 404 CSS Mobile */
+     .titleoops {
+         margin-top: 5rem;
+         margin-left: 20px;
+         margin-right: 20px;
+     }
+
+     p.oops {
+         font-size: 35px;
+     }
+
+     p.something {
+         font-size: 20px;
+     }
+
+     .title404 {
+         margin-left: 20px;
+         margin-right: 20px;
+     }
+
+     p#number404 {
+         font-size: 90px;
+     }
+
+     p#notfound {
+         font-size: 20px;
+     }
+
+     p#wayhome {
+         font-size: 15px;
+     }
+    .buttonhome404 {
+        margin-top: 50px;
+        padding: 0 10%;
+    }
+
+    
+
+
+
+ }
  .card-blue {
     color: #FFFFFF;
     background-color: #007CFF!important;
