@@ -84,4 +84,5 @@ class SaleForm(forms.ModelForm):
             except (ValueError, TypeError):
                 pass  # invalid input from the client; ignore and fallback to empty items queryset
         elif self.instance.pk:
-            self.fields['item'].queryset = self.instance.category.item_set.order_by('item')
+            queryset = self.instance.category.categories.all().order_by('item')
+            self.fields['item'].queryset = queryset
