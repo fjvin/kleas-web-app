@@ -224,7 +224,7 @@ def get_category_item_breakdown_graph(df):
     fig = px.sunburst(df, path=['category', 'item'], 
                       values='quantity', 
                       title='Sales by Category and Item',
-                      color_discrete_sequence=['#6FBAF7','#007CFF','#002CB8', '#482CAF'])
+                      color_discrete_sequence=['#482CAF','#002CB8','#6FBAF7','#007CFF'])
     fig.update_layout(
         paper_bgcolor='rgba(0,0,0,0)',
         plot_bgcolor='#E2F2FF'
