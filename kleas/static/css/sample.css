@@ -286,4 +286,8 @@ input[type=text], input[type=password]{
     content: "Select Item";
 }*/
 
-
+.graph{
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.271);
+}
