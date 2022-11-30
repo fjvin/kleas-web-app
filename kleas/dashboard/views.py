@@ -125,7 +125,8 @@ def get_revenue_trend_graph(df):
                     "purchase_date": "Date",
                     "total_price": "Total Revenue (₱)"
                     }, 
-                title='Revenue Trend'
+                title='Revenue Trend',
+                color_discrete_sequence=['#6FBAF7','#007CFF','#002CB8', '#482CAF']
                 )
 
     fig.add_trace(go.Scatter(
@@ -133,6 +134,11 @@ def get_revenue_trend_graph(df):
                 y=revenue_per_day.total_price,
                 showlegend=False
             ))
+
+    fig.update_layout(
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='#E2F2FF'
+    )
 
     return json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
 
@@ -169,8 +175,14 @@ def get_expenses_trend_graph(restock, store):
                     "value": "Total Expenses (₱)"
                     }, 
                 title='Expenses Trend',
-                barmode='group')
-                
+                barmode='group',
+                color_discrete_sequence=['#6FBAF7','#007CFF','#002CB8', '#482CAF'])
+
+    fig.update_layout(
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='#E2F2FF'
+    )
+
     return json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
 
 
@@ -192,9 +204,15 @@ def get_sales_trend_graph(df):
                     "category": "Clothes Category"
                     }, 
                 title='Sales Trend',
-                barmode='group')
+                barmode='group',
+                color_discrete_sequence=['#6FBAF7','#007CFF','#002CB8', '#482CAF']
+                )
     fig.update_xaxes(rangeslider_visible=True)
 
+    fig.update_layout(
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='#E2F2FF'
+    )
 
     return json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     
@@ -205,5 +223,10 @@ def get_category_item_breakdown_graph(df):
 
     fig = px.sunburst(df, path=['category', 'item'], 
                       values='quantity', 
-                      title='Sales by Category and Item')
+                      title='Sales by Category and Item',
+                      color_discrete_sequence=['#482CAF','#002CB8','#6FBAF7','#007CFF'])
+    fig.update_layout(
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='#E2F2FF'
+    )
     return json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
