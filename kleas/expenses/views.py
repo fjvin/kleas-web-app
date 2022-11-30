@@ -1,6 +1,7 @@
 from django.views.generic import CreateView, ListView, UpdateView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404
 from django.shortcuts import redirect
@@ -9,8 +10,10 @@ from django.contrib import messages
 
 from . models import ExpensesRestock, ExpensesStore
 from . forms import ExpensesRestockForm, ExpensesStoreForm
+from accounts.decorators import admin_only
 
 # Expenses Restock Views
+@method_decorator(decorator=admin_only, name='dispatch')
 class ExpensesRestockCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     model = ExpensesRestock
     form_class = ExpensesRestockForm
@@ -18,12 +21,19 @@ class ExpensesRestockCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateV
     success_message = "Expense transaction saved!"
     success_url = reverse_lazy('expenses:restock')
 
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+
 class ExpensesRestockListView(LoginRequiredMixin, ListView):
     model = ExpensesRestock
     queryset = ExpensesRestock.objects.order_by('-purchase_date')
     template_name = 'expenses/expenses_restock/transactions.html'
     context_object_name = 'expenses'
 
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+
+@method_decorator(decorator=admin_only, name='dispatch')
 class ExpensesRestockUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     model = ExpensesRestock
     template_name = 'expenses/expenses_restock/edit_restock_form.html'
@@ -31,7 +41,11 @@ class ExpensesRestockUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateV
     success_message = "Expense transaction updated!"
     success_url = reverse_lazy('expenses:restock_transactions')
 
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+
 @login_required
+@admin_only
 def delete_restock(request, pk):
     expense = get_object_or_404(ExpensesRestock, id=pk)
     expense.delete()
@@ -41,6 +55,7 @@ def delete_restock(request, pk):
 ##################################################################
 
 # Expenses Store Views
+@method_decorator(decorator=admin_only, name='dispatch')
 class ExpensesStoreCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     model = ExpensesStore
     form_class = ExpensesStoreForm
@@ -48,12 +63,19 @@ class ExpensesStoreCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateVie
     success_message = "Expense transaction saved!"
     success_url = reverse_lazy('expenses:store')
 
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+
 class ExpensesStoreListView(LoginRequiredMixin, ListView):
     model = ExpensesStore
     queryset = ExpensesStore.objects.order_by('-date')
     template_name = 'expenses/expenses_store/transactions.html'
     context_object_name = 'expenses'
 
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+
+@method_decorator(decorator=admin_only, name='dispatch')
 class ExpensesStoreUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     model = ExpensesStore
     template_name = 'expenses/expenses_store/edit_store_form.html'
@@ -61,7 +83,11 @@ class ExpensesStoreUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateVie
     success_message = "Expense transaction updated!"
     success_url = reverse_lazy('expenses:store_transactions')
 
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+
 @login_required
+@admin_only
 def delete_store(request, pk):
     expense = get_object_or_404(ExpensesStore, id=pk)
     expense.delete()
