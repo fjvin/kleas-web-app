@@ -207,4 +207,3 @@ def get_category_item_breakdown_graph(df):
                       values='quantity', 
                       title='Sales by Category and Item')
     return json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
-

@@ -1,5 +1,6 @@
 {% extends 'index.html' %}
 {% load static %}
+{% load accounts_extras %}
 
 {% block content %}
 
@@ -23,7 +24,9 @@
               <th scope="col">Item</th>
               <th scope="col">Price</th>
               <th scope="col">Purchase Date</th>
+              {% if request.user|is_group:"admin" %}
               <th scope="col">Actions</th>
+              {% endif %}
             </tr>
         </thead>
         <tbody>
@@ -33,6 +36,7 @@
                 <td>{{ expense.item.item }}</td>
                 <td>{{ expense.price }}</td>
                 <td>{{ expense.purchase_date }}</td>
+                {% if request.user|is_group:"admin" %}
                 <td>
                     <div>
                         <!--Edit Button-->
@@ -65,6 +69,7 @@
                         </div>
                     </div>   
                 </td>
+                {% endif %}
             </tr>
             {% endfor %}
         </tbody>
