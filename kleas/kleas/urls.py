@@ -25,9 +25,6 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('dashboard/', include('dashboard.urls')),
     
-    
     # home page (leads to add sales)
     path('', RedirectView.as_view(url='sales')),
-    path('', include('error404.urls')),
 ]
-handler404 = 'error404.views.error_404_view'
