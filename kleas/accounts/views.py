@@ -5,8 +5,8 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib.auth.models import Group
 from .decorators import unauthenticated_user, admin_only
-
 from . forms import CreateUserForm
+
 
 @login_required
 @admin_only
@@ -20,9 +20,10 @@ def registerPage(request):
             user = form.save()
             username = form.cleaned_data.get('username')
 
-            group, created = Group.objects.get_or_create(name=str(request.POST.get('group')))
+            group_name = str(request.POST.get('group'))
+            group = Group.objects.get(name=group_name)
             user.groups.add(group)
-            
+
             messages.success(request, f'Account was created for {username}')
 
             return redirect(reverse('accounts:login'))
@@ -50,7 +51,6 @@ def logoutUser(request):
     logout(request)
     return redirect(reverse('accounts:login'))
 
-@admin_only
 def contacts(request):
     return render(request, 'accounts/contact.html')
 
