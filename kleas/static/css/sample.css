@@ -124,20 +124,19 @@
 
 
 .bootstrap-select>.dropdown-toggle.bs-placeholder{
-    border-radius: 6px;
+    border-radius: 10px;
+    padding: 20px .75rem;
+    background-color: #FFFFFF;
+}
+
+.bootstrap-select>.dropdown-toggle{
+    border-radius: 10px;
     padding: 20px .75rem;
     background-color: #FFFFFF;
 }
 
 .btn {
     border-radius: 10px;
-}
-
-
-.bootstrap-select>.dropdown-toggle{
-    border-radius: 6px;
-    padding: 20px .75rem;
-    background-color: #FFFFFF;
 }
 
 table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before, table.dataTable.dtr-inline.collapsed>tbody>tr>th.dtr-control:before {
@@ -154,6 +153,18 @@ input[type=text], input[type=password]{
     transition: 0.5s;
     outline: none;
 }
+
+input[type=email]{
+    width: 100%;
+    border-radius: 10px;
+    padding: 22px .75rem;
+    box-sizing: border-box;
+    border: 1px solid #007CFF;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
 /* .align {
     position: absolute;
     top: 50%;
@@ -406,3 +417,23 @@ p#wayhome{
     background-color:rgba(0,0,0,0);
 }
   
+.button-register {
+    border-radius: 10px;
+    width: 100% !important;
+    font-family: "Inter", Arial;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 10px 0;
+    margin: 50px 10px 5px;
+}
+
+.button-register-cancel {
+    border-radius: 10px;
+    width: 100% !important;
+    font-family: "Inter", Arial;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 10px 0;
+    margin-right: 10px;
+    margin-left: 10px;
+}
