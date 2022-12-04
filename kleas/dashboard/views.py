@@ -132,7 +132,8 @@ def get_revenue_trend_graph(df):
     fig.add_trace(go.Scatter(
                 x=revenue_per_day.purchase_date,
                 y=revenue_per_day.total_price,
-                showlegend=False
+                showlegend=False,
+                line_color='#002CB8'
             ))
 
     fig.update_layout(
@@ -194,7 +195,7 @@ def get_sales_trend_graph(df):
             'purchase_date','category','quantity')
 
     sales_df = sales_df.groupby(pd.Grouper(freq='D')).sum().reset_index()
-        
+    
     fig = px.bar(sales_df, 
                 x='purchase_date',
                 y=sales_df.columns,
@@ -205,7 +206,7 @@ def get_sales_trend_graph(df):
                     }, 
                 title='Sales Trend',
                 barmode='group',
-                color_discrete_sequence=['#6FBAF7','#007CFF','#002CB8', '#482CAF']
+                color_discrete_sequence=['#6FBAF7','#007CFF','#002CB8', '#482CAF'],
                 )
     fig.update_xaxes(rangeslider_visible=True)
 

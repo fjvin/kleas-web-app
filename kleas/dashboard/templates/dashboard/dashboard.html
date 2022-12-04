@@ -59,7 +59,7 @@
         </div>
     </div>
 </div>
-<div class="container">
+<div class="container mb-5">
     <div class="row">
         <div class="col-sm m-4 graph">
             <!--Revenue Trend Graph-->
@@ -90,12 +90,23 @@
     var graph2 = {{ expenses_trend_graph| safe }};
     var graph3 = {{ sales_trend_graph| safe }};
     var graph4 = {{ category_item_graph| safe }};
-    var config = { responsive: true };
+    graph1.config = { responsive: true,
+                   displayModeBar: false,
+                   displaylogo: false};
+    graph2.config = { responsive: true,
+                   displayModeBar: false,
+                   displaylogo: false};
+    graph3.config = { responsive: true,
+                   displayModeBar: false,
+                   displaylogo: false};
+    graph4.config = { responsive: true,
+                   displayModeBar: false,
+                   displaylogo: false};
 
-    Plotly.newPlot("chart1", graph1, {}, config);
-    Plotly.newPlot("chart2", graph2, {}, config);
-    Plotly.newPlot("chart3", graph3, {}, config);
-    Plotly.newPlot("chart4", graph4, {}, config);
+    Plotly.newPlot("chart1", graph1);
+    Plotly.newPlot("chart2", graph2);
+    Plotly.newPlot("chart3", graph3);
+    Plotly.newPlot("chart4", graph4);
 
     function resP(id) {
         var d3 = Plotly.d3;
@@ -107,6 +118,7 @@
                 //'margin-right': (100 - WIDTH_IN_PERCENT_OF_PARENT) / 2 + 'vh',
                 //'margin-top': (100 - HEIGHT_IN_PERCENT_OF_PARENT) / 2 + 'vh'
             });
+        
         return gd3.node();
     }
 
