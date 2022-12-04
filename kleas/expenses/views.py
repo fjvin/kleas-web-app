@@ -21,17 +21,12 @@ class ExpensesRestockCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateV
     success_message = "Expense transaction saved!"
     success_url = reverse_lazy('expenses:restock')
 
-    def dispatch(self, request, *args, **kwargs):
-        return super().dispatch(request, *args, **kwargs)
-
 class ExpensesRestockListView(LoginRequiredMixin, ListView):
     model = ExpensesRestock
     queryset = ExpensesRestock.objects.order_by('-purchase_date')
     template_name = 'expenses/expenses_restock/transactions.html'
     context_object_name = 'expenses'
 
-    def dispatch(self, request, *args, **kwargs):
-        return super().dispatch(request, *args, **kwargs)
 
 @method_decorator(decorator=admin_only, name='dispatch')
 class ExpensesRestockUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
@@ -40,9 +35,6 @@ class ExpensesRestockUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateV
     form_class = ExpensesRestockForm
     success_message = "Expense transaction updated!"
     success_url = reverse_lazy('expenses:restock_transactions')
-
-    def dispatch(self, request, *args, **kwargs):
-        return super().dispatch(request, *args, **kwargs)
 
 @login_required
 @admin_only
@@ -63,8 +55,6 @@ class ExpensesStoreCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateVie
     success_message = "Expense transaction saved!"
     success_url = reverse_lazy('expenses:store')
 
-    def dispatch(self, request, *args, **kwargs):
-        return super().dispatch(request, *args, **kwargs)
 
 class ExpensesStoreListView(LoginRequiredMixin, ListView):
     model = ExpensesStore
@@ -72,8 +62,6 @@ class ExpensesStoreListView(LoginRequiredMixin, ListView):
     template_name = 'expenses/expenses_store/transactions.html'
     context_object_name = 'expenses'
 
-    def dispatch(self, request, *args, **kwargs):
-        return super().dispatch(request, *args, **kwargs)
 
 @method_decorator(decorator=admin_only, name='dispatch')
 class ExpensesStoreUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
@@ -83,8 +71,6 @@ class ExpensesStoreUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateVie
     success_message = "Expense transaction updated!"
     success_url = reverse_lazy('expenses:store_transactions')
 
-    def dispatch(self, request, *args, **kwargs):
-        return super().dispatch(request, *args, **kwargs)
 
 @login_required
 @admin_only
