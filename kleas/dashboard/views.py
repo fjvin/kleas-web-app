@@ -150,13 +150,13 @@ def get_expenses_trend_graph(restock, store):
     restock['total_price'] = restock['price'] * restock['quantity']
     # aggregate restock expenses per month
     restock_expenses_per_month = restock[['purchase_date', 'total_price']].resample(
-        'M', on='purchase_date').sum().reset_index()
+        'MS', on='purchase_date').sum().reset_index()
     restock_expenses_per_month['purchase_date'] = restock_expenses_per_month['purchase_date'].apply(
         lambda dt: dt.replace(tzinfo=None))
     
     # aggregate store expenses per month
     store_expenses_per_month = store[['date', 'amount']].resample(
-        'M', on='date').sum().reset_index()
+        'MS', on='date').sum().reset_index()
     
 
     merge_data = pd.merge(restock_expenses_per_month, 
