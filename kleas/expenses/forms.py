@@ -87,7 +87,7 @@ class ExpensesRestockForm(forms.ModelForm):
         elif self.instance.pk:
             queryset = self.instance.category.categories.all()
             self.fields['item'].queryset = queryset
-
+            
 ##################################################################
 
 class DateInput(forms.DateInput):
