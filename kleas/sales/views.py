@@ -8,7 +8,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy, reverse
 from django.contrib import messages
 
-from . models import Sale, Item
+from . models import Sale, Item, Category
 from . forms import SaleForm
 
 

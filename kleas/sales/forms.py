@@ -85,4 +85,4 @@ class SaleForm(forms.ModelForm):
                 pass  # invalid input from the client; ignore and fallback to empty items queryset
         elif self.instance.pk:
             queryset = self.instance.category.categories.all().order_by('item')
-            self.fields['item'].queryset = queryset
+            self.fields['item'].widget.choices = [(i.id, i.item) for i in queryset]
