@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure--2&d0kkeh(!2g+3k2r-g&-n*g8asj@387)u4ow209m89)#%h2w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*'] #For viewing on actual mobile phone via IP Address
 
 
 # Application definition
