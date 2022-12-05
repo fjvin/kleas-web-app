@@ -167,16 +167,18 @@ def get_expenses_trend_graph(restock, store):
     merge_data.rename(columns={'amount': 'store', 'total_price': 'restock'}, 
                     inplace=True)
     merge_data.drop(columns=['purchase_date'], inplace=True)
+    merge_data = merge_data.fillna(0)
+    merge_data =pd.melt(merge_data,id_vars=['date'], var_name='expenses', value_name='value')
 
     fig = px.bar(merge_data, 
                 x='date',
-                y=merge_data.columns,
-                labels={
-                    "date": "Date",
-                    "value": "Total Expenses (₱)"
-                    }, 
+                y='value',
+                color='expenses',
                 title='Expenses Trend',
-                barmode='group',
+                labels={
+                    "value": "Total Revenue (₱)",
+                    "date": "Date",
+                    }, 
                 color_discrete_sequence=['#6FBAF7','#007CFF','#002CB8', '#482CAF'])
 
     fig.update_layout(
@@ -195,7 +197,7 @@ def get_sales_trend_graph(df):
             'purchase_date','category','quantity')
 
     sales_df = sales_df.groupby(pd.Grouper(freq='D')).sum().reset_index()
-    
+
     fig = px.bar(sales_df, 
                 x='purchase_date',
                 y=sales_df.columns,
