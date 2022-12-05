@@ -176,7 +176,7 @@ def get_expenses_trend_graph(restock, store):
                 color='expenses',
                 title='Expenses Trend',
                 labels={
-                    "value": "Total Revenue (₱)",
+                    "value": "Total Expenses (₱)",
                     "date": "Date",
                     }, 
                 color_discrete_sequence=['#6FBAF7','#007CFF','#002CB8', '#482CAF'])
