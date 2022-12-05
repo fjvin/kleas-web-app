@@ -336,6 +336,11 @@ p#wayhome{
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.271);
 }
 
+.register-container{
+    margin-top: 50px;
+    margin-top: 50px;
+}
+
 @media screen and (max-width:820px) {
 
     .wrapper {
