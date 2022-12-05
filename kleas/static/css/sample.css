@@ -424,7 +424,7 @@ p#wayhome{
     font-weight: bold;
     font-size: 15px;
     padding: 10px 0;
-    margin: 50px 10px 5px;
+    /* margin: 50px 10px 5px; */
 }
 
 .button-register-cancel {
@@ -434,6 +434,7 @@ p#wayhome{
     font-weight: bold;
     font-size: 15px;
     padding: 10px 0;
-    margin-right: 10px;
-    margin-left: 10px;
+    background-color: #FFFFFF;
+    /* margin-right: 10px;
+    margin-left: 10px; */
 }
