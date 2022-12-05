@@ -87,10 +87,13 @@
     margin-left: 1px;
     margin-right: 1px;
 } */
+.container-login{
+    padding: 0 5px;
+}
 
 .container-custom{
     padding: 0 5px;
-
+    margin-top: 130px;
 }
 
 .nav-pills .nav-link{
@@ -121,6 +124,7 @@
     width: 100%;
     left: 0;
 }
+
 
 
 .bootstrap-select>.dropdown-toggle.bs-placeholder{
@@ -337,11 +341,26 @@ p#wayhome{
 }
 
 .register-container{
-    margin-top: 50px;
-    margin-top: 50px;
+    /* margin-top: 50px;
+    margin-top: 50px; */
 }
 
 @media screen and (max-width:820px) {
+
+    .container-custom {
+        padding: 0 5px;
+        margin-top: 20px;
+        margin-bottom: 80px;
+    }
+
+    .navbar {
+        top: auto;
+        bottom: 0;
+    }
+
+        
+    
+
 
     .wrapper {
         margin-top: 0px;
