@@ -1,80 +1,89 @@
 {% extends 'accounts/base.html' %}
-
+{% load static %}
 {% block content %}
 
 <form method='POST' action=''>
-    {% csrf_token %}
-    <div class="container">
-        
-        <div class="row justify-content-center">
-          <div class="col-12 col-md-8 col-lg-8 col-xl-6">
-            <div class="row">
-              <div class="col text-center">
-                <h2 class="text-dark ms-3 mt-5 m-4">Register</h2>
-              </div>
-            </div>
-            <div class="row align-items-center">
-              <div class="col mt-4">
-                {{form.username}}
-              </div>
-            </div>
-            <div class="row align-items-center mt-4">
-              <div class="col">
-                {{form.email}}
-              </div>
-            </div>
-            <div class="row align-items-center mt-4">
-              <div class="col">
-                {{form.password1}}
-              </div>
-              <div class="col">
-                {{form.password2}}
-              </div>
-            </div>
-            <div class="row align-items-center mt-4">
-              <div class="col">
-                <p>Type of Account</p>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="group" id="admin" value="admin" checked>
-                  <label class="form-check-label" for="admin">Admin</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="group" id="staff" value="staff">
-                  <label class="form-check-label" for="staff">Staff</label>
-                </div>
-              </div>
-            </div>
-            <div class="row justify-content-center mt-4 ">
-               
-                <!--<p>Have an account? <a href='{% url 'accounts:login' %}'>Login</a></p>-->
-                
-                <button type='submit' class="btn btn-primary mt-2 button-register" id="button-register">Register</button>
-                
-                <button type='button' class="btn btn btn-outline-secondary mt-2 button-register-cancel" id ="button-register-cancel"
-                  onclick="location.href = '{% url 'accounts:login' %}';">Cancel
-                </button>
+  {% csrf_token %}
+  <div class="container">
 
-                <!-- display form errors (if any) -->
-                {{form.errors}}
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-8 col-xl-6">
+        <div class="row">
+          <div class="col text-center">
+            <h2 class="text-dark ms-3 mt-5 m-4">Register</h2>
+          </div>
+        </div>
+        <div class="row align-items-center">
+          <div class="col mt-4">
+            {{form.username}}
+          </div>
+        </div>
+        <div class="row align-items-center mt-4">
+          <div class="col">
+            {{form.email}}
+          </div>
+        </div>
+        <div class="row align-items-center mt-4">
+          <div class="col">
+            {{form.password1}}
+          </div>
+          <div class="col">
+            {{form.password2}}
+          </div>
+        </div>
+        <div class="row align-items-center mt-4">
+          <div class="col">
+            <p>Type of Account</p>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="group" id="admin" value="admin" checked>
+              <label class="form-check-label" for="admin">Admin</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="group" id="staff" value="staff">
+              <label class="form-check-label" for="staff">Staff</label>
             </div>
           </div>
         </div>
+        <div class="row justify-content-center mt-4 ">
+
+          <!--<p>Have an account? <a href='{% url 'accounts:login' %}'>Login</a></p>-->
+
+          <button type='submit' class="btn btn-primary mt-2 button-register" id="button-register">Register</button>
+
+          <button type='button' class="btn btn btn-outline-secondary mt-2 button-register-cancel"
+            id="button-register-cancel" onclick="location.href = '{% url 'accounts:login' %}';">Cancel
+          </button>
+
+          <!-- display form errors (if any) -->
+          {{form.errors}}
+        </div>
       </div>
+    </div>
+  </div>
 
 </form>
 
 <script>
-    var form_fields = document.getElementsByTagName('input')
-    form_fields[1].placeholder='Enter Username';
-    form_fields[2].placeholder='Enter Email';
-    form_fields[3].placeholder='Enter password';
-    form_fields[4].placeholder='Re-enter Password';
+  var form_fields = document.getElementsByTagName('input')
+  form_fields[1].placeholder = 'Enter Username';
+  form_fields[2].placeholder = 'Enter Email';
+  form_fields[3].placeholder = 'Enter password';
+  form_fields[4].placeholder = 'Re-enter Password';
 
-    for (var field in form_fields){	
-        if (form_fields[field].type != 'checkbox') {
-            form_fields[field].className += ' form-control'
-        }
+  for (var field in form_fields) {
+    if (form_fields[field].type != 'checkbox') {
+      form_fields[field].className += ' form-control'
     }
+  }
 </script>
+<style>
+  body {
+    background-image: url("{% static 'img/bg.svg' %}");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: right;
+  }
+</style>
 
 {% endblock %}
