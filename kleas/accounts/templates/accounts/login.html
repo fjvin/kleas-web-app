@@ -1,44 +1,70 @@
-{% extends 'accounts/base.html' %}
 {% load static %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block content %}
-<div class="wrapper ">
-  <div class="box1">
-    <img src="{% static 'img/kleas_logo.png' %}" alt="Klea's logo" width="300" height="300"
-      class="mt-5 mx-auto d-block rounded-circle" id="login-logo" />
-    <div class="row">
-      <div class="col text-center">
-        <h2 class="h1 text-dark ms-3 m-4">Welcome</h2>
-      </div>
-    </div>
-  </div>
-  <div class="box2">
-    <div class="container">
-      <form method='POST' action=''>
-        {% csrf_token %}
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-12 ">
-              <div class="row align-items-center">
-                <div class="col mt-4">
-                  <label>Username</label>
-                  <input type="text" class="form-control" name='username' placeholder="Username">
-                </div>
-              </div>
-              <div class="row align-items-center">
-                <div class="col mt-4">
-                  <label>Password</label>
-                  <input type="password" class="form-control" name='password' placeholder="Password">
-                </div>
-              </div>
-              <button type="submit" class="btn btn-primary button-login">Login</button>
-              <button type="reset" class="btn btn btn-outline-secondary button-login-cancel">Cancel</button>
-              <p class="text-center mt-4"> <a href="{% url 'accounts:contacts' %}">Forgot Password?</a></p>
-            </div>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <!-- Bootstrap4 jsD elivr CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <!-- bootstrap-select compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+  <!-- Font-family -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
+  <!-- sample.css -->
+  <link rel="stylesheet" href="{% static 'css/sample.css' %}">
+</head>
+
+<body>
+  <div class="container-login container align">
+    <div class="wrapper ">
+      <div class="box1">
+        <img src="{% static 'img/kleas_logo.png' %}" alt="Klea's logo" width="300" height="300"
+          class="mt-5 mx-auto d-block rounded-circle" id="login-logo" />
+        <div class="row">
+          <div class="col text-center">
+            <h2 class="h1 text-dark ms-3 m-4">Welcome</h2>
           </div>
         </div>
-      </form>
+      </div>
+      <div class="box2">
+        <div class="container">
+          <form method='POST' action=''>
+            {% csrf_token %}
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-12 ">
+                  <div class="row align-items-center">
+                    <div class="col mt-4">
+                      <label>Username</label>
+                      <input type="text" class="form-control" name='username' placeholder="Username">
+                    </div>
+                  </div>
+                  <div class="row align-items-center">
+                    <div class="col mt-4">
+                      <label>Password</label>
+                      <input type="password" class="form-control" name='password' placeholder="Password">
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary button-login">Login</button>
+                  <button type="reset" class="btn btn btn-outline-secondary button-login-cancel">Cancel</button>
+                  <p class="text-center mt-4"> <a href="{% url 'accounts:contacts' %}">Forgot Password?</a></p>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
+
   </div>
-</div>
-{% endblock %}
+
+</body>
+
+</html>
